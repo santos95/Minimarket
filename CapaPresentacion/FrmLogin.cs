@@ -71,7 +71,7 @@ namespace CapaPresentacion
             else
             {
 
-                //Login();
+                Login();
 
                 if (count < 3)
                 {
@@ -175,6 +175,203 @@ namespace CapaPresentacion
             SendMessage(this.Handle, 0x112, 0xf012, 0);
 
         }
+
+        private void TxtUsuario_MouseClick(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void TxtPassword_Click(object sender, EventArgs e)
+        {
+
+            if (this.TxtPassword.Text == "Contraseña")
+            {
+
+                this.TxtPassword.Text = "";
+                this.TxtPassword.TextAlign = HorizontalAlignment.Left;
+                this.TxtPassword.ForeColor = Color.Black;
+
+            }
+
+        }
+
+        private void TxtUsuario_Click(object sender, EventArgs e)
+        {
+
+            if (this.TxtUsuario.Text == "Usuario")
+            {
+
+                this.TxtUsuario.Text = "";
+                this.TxtUsuario.TextAlign = HorizontalAlignment.Left;
+                this.TxtUsuario.ForeColor = Color.Black;
+
+            }
+
+        }
+
+        private void Login()
+        {
+
+            try
+            {
+                //intento
+                ++Count;
+
+                //Verificación de credenciales
+                data.DataSource = conexionLinq.accesologin(TxtUsuario.Text.Trim(), CapaNegocio.Administracion.NUsuario.Encriptar(TxtPassword.Text.Trim()));
+                conexionLinq.spControlAcceso(TxtUsuario.Text.Trim(), CapaNegocio.Administracion.NUsuario.Encriptar(TxtPassword.Text.Trim()));
+
+                //establecer variables para utilizar credenciales de acceso y conexion
+                accesousuario = int.Parse(data[0, 0].Value.ToString());
+                nombreusu = data[1, 0].Value.ToString();
+                codigousu = int.Parse(data[3, 0].Value.ToString());
+                passuser = data[2, 0].Value.ToString();
+
+                estado.DataSource = conexionLinq.estadoconexion(codigousu);
+                estadousu = char.Parse(estado[2, 0].Value.ToString());
+                frm.Acceso = accesousuario;
+
+                //Control de intentos
+                if (data.RowCount != 0 && estadousu == 'B')
+                {
+
+                    MessageBox.Show("Su usuario ha sido bloqueado. Comuniquese con el administrador para obtener acceso", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.TxtPassword.Enabled = false;
+                    this.TxtUsuario.Enabled = false;
+                    this.BtnIngresar.Enabled = false;
+
+                }
+                else if (data.RowCount != 0 && estadousu == 'C')
+                {
+
+                    data.Visible = true;
+
+                    if (accesousuario == 1)
+                    {
+
+                        frm.Show();
+                        frm.usuario = nombreusu;
+                        frm.btnUser.Text = nombreusu;
+                        this.Hide();
+
+                    }
+                    else if (accesousuario == 2)
+                    {
+
+                        frm.Show();
+                        this.Hide();
+
+                    }
+                    else if (accesousuario == 3)
+                    {
+
+                        frm.Show();
+                        this.Hide();
+
+                    }
+                    else
+                    {
+
+                        MessageBox.Show("Usuario o contraseña incorrecto.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        this.pnlUsuario.BackColor = Color.Red;
+                        this.pnlContraseña.BackColor = Color.Red;
+                    }
+
+                }
+            }
+            catch(Exception)
+            {
+
+                if (Count >= 3)
+                {
+
+                    this.TxtUsuario.Text = "Usuario";
+                    this.TxtPassword.Text = "Contraseña";
+                    this.TxtPassword.Enabled = false;
+                    this.TxtUsuario.Enabled = false;
+
+
+                    if (MessageBox.Show("Solicite ayude a soporte técnico para ingresar al Sistema", "Error: Se ha quedado sin intentos.", MessageBoxButtons.OK, MessageBoxIcon.Stop) == DialogResult.OK)
+                    {
+
+                        Application.Exit();
+
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show("Usuario o contraseña incorrecto.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    this.pnlUsuario.BackColor = Color.Red;
+                    this.pnlContraseña.BackColor = Color.Red;
+
+                }
+
+            }
+
+        }
+
+        private void TxtUsuario_KeyDown(object sender, KeyEventArgs e)
+        {
+
+            if (e.KeyCode == Keys.Enter)
+            {
+
+                if ((this.TxtPassword.Text != "Contraseña" && this.TxtPassword.Text != "") && (this.TxtUsuario.Text != "Usuario" && this.TxtUsuario.Text != ""))
+                {
+
+                    Login();
+
+                    if (count < 3)
+                    {
+
+                        this.TxtUsuario.Text = "";
+                        this.TxtUsuario.TextAlign = HorizontalAlignment.Left;
+                        this.TxtUsuario.Focus();
+                        this.TxtPassword.UseSystemPasswordChar = false;
+                        this.TxtPassword.TextAlign = HorizontalAlignment.Center;
+                        this.TxtPassword.ForeColor = Color.LightGray;
+                        this.TxtPassword.Text = "Contraseña";
+
+                    }
+
+                }
+
+            }
+
+        }
+
+        private void TxtPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+
+                if ((this.TxtPassword.Text != "Contraseña" && this.TxtPassword.Text != "") && (this.TxtUsuario.Text != "Usuario" && this.TxtUsuario.Text != ""))
+                {
+
+                    Login();
+
+
+                    if (count < 3)
+                    {
+
+
+                        this.TxtUsuario.Text = "";
+                        this.TxtUsuario.Focus();
+                        this.TxtUsuario.TextAlign = HorizontalAlignment.Left;
+                        this.TxtPassword.UseSystemPasswordChar = false;
+                        this.TxtPassword.ForeColor = Color.LightGray;
+                        this.TxtPassword.TextAlign = HorizontalAlignment.Center;
+                        this.TxtPassword.Text = "Contraseña";
+
+                    }
+
+                }
+
+            }
+
+        }
+
     }
 
 }

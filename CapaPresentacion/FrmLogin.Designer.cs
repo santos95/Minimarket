@@ -174,7 +174,9 @@
             this.TxtUsuario.Size = new System.Drawing.Size(327, 22);
             this.TxtUsuario.TabIndex = 143;
             this.TxtUsuario.Text = "Usuario";
+            this.TxtUsuario.Click += new System.EventHandler(this.TxtUsuario_Click);
             this.TxtUsuario.Enter += new System.EventHandler(this.TxtUsuario_Enter);
+            this.TxtUsuario.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtUsuario_KeyDown);
             this.TxtUsuario.Leave += new System.EventHandler(this.TxtUsuario_Leave);
             // 
             // TxtPassword
@@ -188,7 +190,9 @@
             this.TxtPassword.TabIndex = 144;
             this.TxtPassword.Text = "Contraseña";
             this.TxtPassword.UseSystemPasswordChar = true;
+            this.TxtPassword.Click += new System.EventHandler(this.TxtPassword_Click);
             this.TxtPassword.Enter += new System.EventHandler(this.TxtPassword_Enter);
+            this.TxtPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtPassword_KeyDown);
             this.TxtPassword.Leave += new System.EventHandler(this.TxtPassword_Leave);
             // 
             // data
@@ -242,7 +246,9 @@
             this.Controls.Add(this.Logo);
             this.Controls.Add(this.Encabezado);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmLogin";
             this.Load += new System.EventHandler(this.FrmLogin_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FrmLogin_MouseDown);

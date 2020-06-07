@@ -42,6 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Administracion\Conexion.cs" />
+    <Compile Include="Administracion\Encrypt.cs" />
+    <Compile Include="Administracion\Usuario.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="conexion.cs" />
     <Compile Include="DAnular_Compra.cs" />

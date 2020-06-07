@@ -59,29 +59,31 @@
             this.SuspenderMenu = new System.Windows.Forms.Timer(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblHora = new System.Windows.Forms.Label();
             this.btnUser = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.lblf = new System.Windows.Forms.Label();
-            this.lblh = new System.Windows.Forms.Label();
+            this.lblFecha = new System.Windows.Forms.Label();
+            this.lblTasa = new System.Windows.Forms.Label();
+            this.lblValorTasa = new System.Windows.Forms.Label();
+            this.lblCaja = new System.Windows.Forms.Label();
+            this.lblMontoCaja = new System.Windows.Forms.Label();
+            this.lblValorFecha = new System.Windows.Forms.Label();
+            this.lblValorHora = new System.Windows.Forms.Label();
             this.BarraTitulo = new System.Windows.Forms.Panel();
+            this.splitter1 = new System.Windows.Forms.Splitter();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.HerramientasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cALCULADORAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.QuiaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.atajosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.AyudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.PreferenciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.idiomaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.inglesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.españolToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.fondoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.oscuroToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.claroToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.ayudaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.ayudaToolStripMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.contenidoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.índiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buscarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -488,6 +490,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(180, 101);
             this.panel2.TabIndex = 0;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // label2
             // 
@@ -543,14 +546,15 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.panel1.Controls.Add(this.lblHora);
             this.panel1.Controls.Add(this.btnUser);
-            this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.lblf);
-            this.panel1.Controls.Add(this.lblh);
+            this.panel1.Controls.Add(this.lblFecha);
+            this.panel1.Controls.Add(this.lblTasa);
+            this.panel1.Controls.Add(this.lblValorTasa);
+            this.panel1.Controls.Add(this.lblCaja);
+            this.panel1.Controls.Add(this.lblMontoCaja);
+            this.panel1.Controls.Add(this.lblValorFecha);
+            this.panel1.Controls.Add(this.lblValorHora);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.ForeColor = System.Drawing.Color.Black;
             this.panel1.Location = new System.Drawing.Point(224, 720);
@@ -558,112 +562,129 @@
             this.panel1.Size = new System.Drawing.Size(800, 35);
             this.panel1.TabIndex = 18;
             // 
+            // lblHora
+            // 
+            this.lblHora.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblHora.AutoSize = true;
+            this.lblHora.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.lblHora.ForeColor = System.Drawing.Color.Black;
+            this.lblHora.Location = new System.Drawing.Point(666, 3);
+            this.lblHora.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblHora.Name = "lblHora";
+            this.lblHora.Size = new System.Drawing.Size(50, 21);
+            this.lblHora.TabIndex = 48;
+            this.lblHora.Text = "Hora:";
+            // 
             // btnUser
             // 
+            this.btnUser.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(109)))), ((int)(((byte)(126)))));
+            this.btnUser.FlatAppearance.BorderSize = 2;
             this.btnUser.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnUser.Font = new System.Drawing.Font("Arial Black", 10F);
             this.btnUser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnUser.Location = new System.Drawing.Point(-1, -5);
             this.btnUser.Name = "btnUser";
-            this.btnUser.Size = new System.Drawing.Size(119, 40);
+            this.btnUser.Size = new System.Drawing.Size(165, 40);
             this.btnUser.TabIndex = 47;
-            this.btnUser.Text = "button1";
+            this.btnUser.Text = "Usuario";
             this.btnUser.UseVisualStyleBackColor = true;
+            this.btnUser.Click += new System.EventHandler(this.btnUser_Click);
             // 
-            // label7
+            // lblFecha
             // 
-            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(506, 3);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(97, 21);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "lblContador";
+            this.lblFecha.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblFecha.AutoSize = true;
+            this.lblFecha.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.lblFecha.ForeColor = System.Drawing.Color.Black;
+            this.lblFecha.Location = new System.Drawing.Point(529, 3);
+            this.lblFecha.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblFecha.Name = "lblFecha";
+            this.lblFecha.Size = new System.Drawing.Size(56, 21);
+            this.lblFecha.TabIndex = 0;
+            this.lblFecha.Text = "Fecha:";
             // 
-            // label5
+            // lblTasa
             // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(289, 3);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(127, 21);
-            this.label5.TabIndex = 45;
-            this.label5.Text = "Tasa de Cambio:";
+            this.lblTasa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblTasa.AutoSize = true;
+            this.lblTasa.BackColor = System.Drawing.Color.Transparent;
+            this.lblTasa.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.lblTasa.ForeColor = System.Drawing.Color.Black;
+            this.lblTasa.Location = new System.Drawing.Point(289, 3);
+            this.lblTasa.Name = "lblTasa";
+            this.lblTasa.Size = new System.Drawing.Size(127, 21);
+            this.lblTasa.TabIndex = 45;
+            this.lblTasa.Text = "Tasa de Cambio:";
             // 
-            // label6
+            // lblValorTasa
             // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(414, 3);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(69, 21);
-            this.label6.TabIndex = 44;
-            this.label6.Text = "C$33.84";
+            this.lblValorTasa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblValorTasa.AutoSize = true;
+            this.lblValorTasa.BackColor = System.Drawing.Color.Transparent;
+            this.lblValorTasa.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.lblValorTasa.ForeColor = System.Drawing.Color.Black;
+            this.lblValorTasa.Location = new System.Drawing.Point(414, 3);
+            this.lblValorTasa.Name = "lblValorTasa";
+            this.lblValorTasa.Size = new System.Drawing.Size(69, 21);
+            this.lblValorTasa.TabIndex = 44;
+            this.lblValorTasa.Text = "C$33.84";
             // 
-            // label3
+            // lblCaja
             // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(124, 3);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 21);
-            this.label3.TabIndex = 43;
-            this.label3.Text = "Caja:";
+            this.lblCaja.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblCaja.AutoSize = true;
+            this.lblCaja.BackColor = System.Drawing.Color.Transparent;
+            this.lblCaja.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.lblCaja.ForeColor = System.Drawing.Color.Black;
+            this.lblCaja.Location = new System.Drawing.Point(162, 3);
+            this.lblCaja.Name = "lblCaja";
+            this.lblCaja.Size = new System.Drawing.Size(44, 21);
+            this.lblCaja.TabIndex = 43;
+            this.lblCaja.Text = "Caja:";
             // 
-            // label4
+            // lblMontoCaja
             // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(170, 3);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(56, 21);
-            this.label4.TabIndex = 42;
-            this.label4.Text = "C$500";
+            this.lblMontoCaja.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblMontoCaja.AutoSize = true;
+            this.lblMontoCaja.BackColor = System.Drawing.Color.Transparent;
+            this.lblMontoCaja.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.lblMontoCaja.ForeColor = System.Drawing.Color.Black;
+            this.lblMontoCaja.Location = new System.Drawing.Point(208, 3);
+            this.lblMontoCaja.Name = "lblMontoCaja";
+            this.lblMontoCaja.Size = new System.Drawing.Size(56, 21);
+            this.lblMontoCaja.TabIndex = 42;
+            this.lblMontoCaja.Text = "C$500";
             // 
-            // lblf
+            // lblValorFecha
             // 
-            this.lblf.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblf.AutoSize = true;
-            this.lblf.BackColor = System.Drawing.Color.Transparent;
-            this.lblf.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.lblf.ForeColor = System.Drawing.Color.Black;
-            this.lblf.Location = new System.Drawing.Point(614, 3);
-            this.lblf.Name = "lblf";
-            this.lblf.Size = new System.Drawing.Size(56, 21);
-            this.lblf.TabIndex = 40;
-            this.lblf.Text = "Fecha:";
+            this.lblValorFecha.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblValorFecha.AutoSize = true;
+            this.lblValorFecha.BackColor = System.Drawing.Color.Transparent;
+            this.lblValorFecha.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.lblValorFecha.ForeColor = System.Drawing.Color.Black;
+            this.lblValorFecha.Location = new System.Drawing.Point(590, 3);
+            this.lblValorFecha.Name = "lblValorFecha";
+            this.lblValorFecha.Size = new System.Drawing.Size(44, 21);
+            this.lblValorFecha.TabIndex = 40;
+            this.lblValorFecha.Text = "Date";
             // 
-            // lblh
+            // lblValorHora
             // 
-            this.lblh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblh.BackColor = System.Drawing.Color.Transparent;
-            this.lblh.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.lblh.ForeColor = System.Drawing.Color.Black;
-            this.lblh.Location = new System.Drawing.Point(730, 3);
-            this.lblh.Name = "lblh";
-            this.lblh.Size = new System.Drawing.Size(86, 23);
-            this.lblh.TabIndex = 39;
-            this.lblh.Text = "10:59:58";
+            this.lblValorHora.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblValorHora.BackColor = System.Drawing.Color.Transparent;
+            this.lblValorHora.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.lblValorHora.ForeColor = System.Drawing.Color.Black;
+            this.lblValorHora.Location = new System.Drawing.Point(730, 3);
+            this.lblValorHora.Name = "lblValorHora";
+            this.lblValorHora.Size = new System.Drawing.Size(86, 23);
+            this.lblValorHora.TabIndex = 39;
+            this.lblValorHora.Text = "10:59:58";
             // 
             // BarraTitulo
             // 
             this.BarraTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.BarraTitulo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BarraTitulo.Controls.Add(this.splitter1);
             this.BarraTitulo.Controls.Add(this.menuStrip1);
             this.BarraTitulo.Controls.Add(this.iconminimizar);
             this.BarraTitulo.Controls.Add(this.iconcerrar);
@@ -676,6 +697,15 @@
             this.BarraTitulo.TabIndex = 17;
             this.BarraTitulo.Paint += new System.Windows.Forms.PaintEventHandler(this.BarraTitulo_Paint);
             // 
+            // splitter1
+            // 
+            this.splitter1.BackColor = System.Drawing.Color.Black;
+            this.splitter1.Location = new System.Drawing.Point(0, 0);
+            this.splitter1.Name = "splitter1";
+            this.splitter1.Size = new System.Drawing.Size(8, 55);
+            this.splitter1.TabIndex = 5;
+            this.splitter1.TabStop = false;
+            // 
             // menuStrip1
             // 
             this.menuStrip1.BackColor = System.Drawing.Color.Transparent;
@@ -685,12 +715,12 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.HerramientasToolStripMenuItem,
             this.QuiaToolStripMenuItem,
-            this.AyudaToolStripMenuItem,
-            this.ayudaToolStripMenuItem1});
+            this.PreferenciaToolStripMenuItem,
+            this.ayudaToolStripMenu});
             this.menuStrip1.Location = new System.Drawing.Point(3, 9);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.menuStrip1.Size = new System.Drawing.Size(437, 40);
+            this.menuStrip1.Size = new System.Drawing.Size(442, 29);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -703,9 +733,8 @@
             this.HerramientasToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.HerramientasToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.HerramientasToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("HerramientasToolStripMenuItem.Image")));
-            this.HerramientasToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.HerramientasToolStripMenuItem.Name = "HerramientasToolStripMenuItem";
-            this.HerramientasToolStripMenuItem.Size = new System.Drawing.Size(152, 36);
+            this.HerramientasToolStripMenuItem.Size = new System.Drawing.Size(140, 25);
             this.HerramientasToolStripMenuItem.Text = "Herramientas";
             this.HerramientasToolStripMenuItem.MouseMove += new System.Windows.Forms.MouseEventHandler(this.HerramientasToolStripMenuItem_MouseMove);
             // 
@@ -736,9 +765,8 @@
             this.QuiaToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.QuiaToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.QuiaToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("QuiaToolStripMenuItem.Image")));
-            this.QuiaToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.QuiaToolStripMenuItem.Name = "QuiaToolStripMenuItem";
-            this.QuiaToolStripMenuItem.Size = new System.Drawing.Size(86, 36);
+            this.QuiaToolStripMenuItem.Size = new System.Drawing.Size(74, 25);
             this.QuiaToolStripMenuItem.Text = "Guia";
             // 
             // atajosToolStripMenuItem
@@ -749,18 +777,17 @@
             this.atajosToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
             this.atajosToolStripMenuItem.Text = "Atajos";
             // 
-            // AyudaToolStripMenuItem
+            // PreferenciaToolStripMenuItem
             // 
-            this.AyudaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.PreferenciaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.idiomaToolStripMenuItem1,
             this.fondoToolStripMenuItem1});
-            this.AyudaToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AyudaToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
-            this.AyudaToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("AyudaToolStripMenuItem.Image")));
-            this.AyudaToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.AyudaToolStripMenuItem.Name = "AyudaToolStripMenuItem";
-            this.AyudaToolStripMenuItem.Size = new System.Drawing.Size(140, 36);
-            this.AyudaToolStripMenuItem.Text = "Personalizar";
+            this.PreferenciaToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PreferenciaToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
+            this.PreferenciaToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("PreferenciaToolStripMenuItem.Image")));
+            this.PreferenciaToolStripMenuItem.Name = "PreferenciaToolStripMenuItem";
+            this.PreferenciaToolStripMenuItem.Size = new System.Drawing.Size(132, 25);
+            this.PreferenciaToolStripMenuItem.Text = "Preferencias";
             // 
             // idiomaToolStripMenuItem1
             // 
@@ -808,45 +835,48 @@
             this.claroToolStripMenuItem1.Text = "Claro";
             this.claroToolStripMenuItem1.Click += new System.EventHandler(this.claroToolStripMenuItem1_Click);
             // 
-            // ayudaToolStripMenuItem1
+            // ayudaToolStripMenu
             // 
-            this.ayudaToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ayudaToolStripMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.contenidoToolStripMenuItem,
             this.índiceToolStripMenuItem,
             this.buscarToolStripMenuItem,
             this.toolStripSeparator5,
             this.acercadeToolStripMenuItem});
-            this.ayudaToolStripMenuItem1.Name = "ayudaToolStripMenuItem1";
-            this.ayudaToolStripMenuItem1.Size = new System.Drawing.Size(51, 36);
-            this.ayudaToolStripMenuItem1.Text = "Ay&uda";
+            this.ayudaToolStripMenu.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.ayudaToolStripMenu.ForeColor = System.Drawing.Color.Black;
+            this.ayudaToolStripMenu.Image = ((System.Drawing.Image)(resources.GetObject("ayudaToolStripMenu.Image")));
+            this.ayudaToolStripMenu.Name = "ayudaToolStripMenu";
+            this.ayudaToolStripMenu.Size = new System.Drawing.Size(88, 25);
+            this.ayudaToolStripMenu.Text = "Ay&uda";
             // 
             // contenidoToolStripMenuItem
             // 
             this.contenidoToolStripMenuItem.Name = "contenidoToolStripMenuItem";
-            this.contenidoToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.contenidoToolStripMenuItem.Size = new System.Drawing.Size(165, 26);
             this.contenidoToolStripMenuItem.Text = "&Contenido";
             // 
             // índiceToolStripMenuItem
             // 
             this.índiceToolStripMenuItem.Name = "índiceToolStripMenuItem";
-            this.índiceToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.índiceToolStripMenuItem.Size = new System.Drawing.Size(165, 26);
             this.índiceToolStripMenuItem.Text = "Índic&e";
             // 
             // buscarToolStripMenuItem
             // 
             this.buscarToolStripMenuItem.Name = "buscarToolStripMenuItem";
-            this.buscarToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.buscarToolStripMenuItem.Size = new System.Drawing.Size(165, 26);
             this.buscarToolStripMenuItem.Text = "&Buscar";
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(129, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(162, 6);
             // 
             // acercadeToolStripMenuItem
             // 
             this.acercadeToolStripMenuItem.Name = "acercadeToolStripMenuItem";
-            this.acercadeToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.acercadeToolStripMenuItem.Size = new System.Drawing.Size(165, 26);
             this.acercadeToolStripMenuItem.Text = "&Acerca de...";
             // 
             // iconminimizar
@@ -854,9 +884,9 @@
             this.iconminimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.iconminimizar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.iconminimizar.Image = ((System.Drawing.Image)(resources.GetObject("iconminimizar.Image")));
-            this.iconminimizar.Location = new System.Drawing.Point(734, 3);
+            this.iconminimizar.Location = new System.Drawing.Point(735, 3);
             this.iconminimizar.Name = "iconminimizar";
-            this.iconminimizar.Size = new System.Drawing.Size(28, 24);
+            this.iconminimizar.Size = new System.Drawing.Size(30, 30);
             this.iconminimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.iconminimizar.TabIndex = 4;
             this.iconminimizar.TabStop = false;
@@ -867,9 +897,9 @@
             this.iconcerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.iconcerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.iconcerrar.Image = ((System.Drawing.Image)(resources.GetObject("iconcerrar.Image")));
-            this.iconcerrar.Location = new System.Drawing.Point(768, 3);
+            this.iconcerrar.Location = new System.Drawing.Point(770, 3);
             this.iconcerrar.Name = "iconcerrar";
-            this.iconcerrar.Size = new System.Drawing.Size(28, 24);
+            this.iconcerrar.Size = new System.Drawing.Size(30, 30);
             this.iconcerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.iconcerrar.TabIndex = 1;
             this.iconcerrar.TabStop = false;
@@ -1013,7 +1043,7 @@
             this.btnMadmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMadmin.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMadmin.ForeColor = System.Drawing.Color.Black;
-            this.btnMadmin.Image = global::CapaPresentacion.Properties.Resources.Administrador_1_;
+            this.btnMadmin.Image = ((System.Drawing.Image)(resources.GetObject("btnMadmin.Image")));
             this.btnMadmin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnMadmin.Location = new System.Drawing.Point(27, 958);
             this.btnMadmin.Name = "btnMadmin";
@@ -1193,9 +1223,9 @@
             this.btnMGestion.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnMGestion.FlatAppearance.BorderSize = 0;
             this.btnMGestion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMGestion.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMGestion.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
             this.btnMGestion.ForeColor = System.Drawing.Color.Black;
-            this.btnMGestion.Image = global::CapaPresentacion.Properties.Resources.Administracion;
+            this.btnMGestion.Image = ((System.Drawing.Image)(resources.GetObject("btnMGestion.Image")));
             this.btnMGestion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnMGestion.Location = new System.Drawing.Point(27, 701);
             this.btnMGestion.Name = "btnMGestion";
@@ -1215,7 +1245,7 @@
             this.btnMventas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMventas.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMventas.ForeColor = System.Drawing.Color.Black;
-            this.btnMventas.Image = global::CapaPresentacion.Properties.Resources.Cilentes_1_;
+            this.btnMventas.Image = ((System.Drawing.Image)(resources.GetObject("btnMventas.Image")));
             this.btnMventas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnMventas.Location = new System.Drawing.Point(27, 531);
             this.btnMventas.Name = "btnMventas";
@@ -1235,7 +1265,7 @@
             this.btnMcompras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMcompras.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMcompras.ForeColor = System.Drawing.Color.Black;
-            this.btnMcompras.Image = global::CapaPresentacion.Properties.Resources.health_check;
+            this.btnMcompras.Image = ((System.Drawing.Image)(resources.GetObject("btnMcompras.Image")));
             this.btnMcompras.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnMcompras.Location = new System.Drawing.Point(27, 301);
             this.btnMcompras.Name = "btnMcompras";
@@ -1264,7 +1294,7 @@
             // 
             this.panelContenedor.AutoSize = true;
             this.panelContenedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(232)))), ((int)(((byte)(232)))));
-            this.panelContenedor.BackgroundImage = global::CapaPresentacion.Properties.Resources.supermarket_949912_1280;
+            this.panelContenedor.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelContenedor.BackgroundImage")));
             this.panelContenedor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelContenedor.Controls.Add(this.pnlUser);
             this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1273,15 +1303,16 @@
             this.panelContenedor.Name = "panelContenedor";
             this.panelContenedor.Size = new System.Drawing.Size(800, 665);
             this.panelContenedor.TabIndex = 19;
+            this.panelContenedor.Paint += new System.Windows.Forms.PaintEventHandler(this.panelContenedor_Paint);
             // 
             // pnlUser
             // 
             this.pnlUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.pnlUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.pnlUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(109)))), ((int)(((byte)(126)))));
             this.pnlUser.Controls.Add(this.btnCerrarSesion);
-            this.pnlUser.Location = new System.Drawing.Point(0, 623);
+            this.pnlUser.Location = new System.Drawing.Point(0, 605);
             this.pnlUser.Name = "pnlUser";
-            this.pnlUser.Size = new System.Drawing.Size(164, 38);
+            this.pnlUser.Size = new System.Drawing.Size(164, 60);
             this.pnlUser.TabIndex = 1;
             this.pnlUser.Visible = false;
             // 
@@ -1290,16 +1321,15 @@
             this.btnCerrarSesion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnCerrarSesion.BackColor = System.Drawing.Color.White;
             this.btnCerrarSesion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnCerrarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCerrarSesion.Font = new System.Drawing.Font("Arial Black", 10F);
             this.btnCerrarSesion.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnCerrarSesion.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrarSesion.Image")));
             this.btnCerrarSesion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCerrarSesion.Location = new System.Drawing.Point(2, 5);
             this.btnCerrarSesion.Name = "btnCerrarSesion";
-            this.btnCerrarSesion.Size = new System.Drawing.Size(159, 29);
+            this.btnCerrarSesion.Size = new System.Drawing.Size(159, 35);
             this.btnCerrarSesion.TabIndex = 47;
-            this.btnCerrarSesion.Text = "  Cerrar Sesion";
+            this.btnCerrarSesion.Text = "      Cerrar Sesión";
             this.btnCerrarSesion.UseVisualStyleBackColor = false;
             this.btnCerrarSesion.Click += new System.EventHandler(this.btnCerrarSesion_Click);
             // 
@@ -1309,7 +1339,7 @@
             this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.idiomaToolStripMenuItem,
             this.fondoToolStripMenuItem});
-            this.toolStripDropDownButton1.Image = global::CapaPresentacion.Properties.Resources.settings;
+            this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
             this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
             this.toolStripDropDownButton1.Size = new System.Drawing.Size(34, 24);
@@ -1429,13 +1459,13 @@
         private System.Windows.Forms.Timer SuspenderMenu;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label lblf;
-        private System.Windows.Forms.Label lblh;
+        private System.Windows.Forms.Label lblFecha;
+        private System.Windows.Forms.Label lblTasa;
+        private System.Windows.Forms.Label lblValorTasa;
+        private System.Windows.Forms.Label lblCaja;
+        private System.Windows.Forms.Label lblMontoCaja;
+        private System.Windows.Forms.Label lblValorFecha;
+        private System.Windows.Forms.Label lblValorHora;
         private System.Windows.Forms.Panel BarraTitulo;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem HerramientasToolStripMenuItem;
@@ -1443,7 +1473,7 @@
         private System.Windows.Forms.ToolStripMenuItem exelToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem QuiaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem atajosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem AyudaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem PreferenciaToolStripMenuItem;
         private System.Windows.Forms.PictureBox iconminimizar;
         private System.Windows.Forms.PictureBox iconcerrar;
         private System.Windows.Forms.Panel MenuVertical;
@@ -1465,7 +1495,7 @@
         private System.Windows.Forms.ToolStripMenuItem fondoToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem oscuroToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem claroToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem ayudaToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem ayudaToolStripMenu;
         private System.Windows.Forms.ToolStripMenuItem contenidoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem índiceToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem buscarToolStripMenuItem;
@@ -1485,5 +1515,7 @@
         private System.Windows.Forms.Button btnCargo;
         private System.Windows.Forms.Button btnEmpleado;
         private System.Windows.Forms.Button btnPersona;
+        private System.Windows.Forms.Splitter splitter1;
+        private System.Windows.Forms.Label lblHora;
     }
 }

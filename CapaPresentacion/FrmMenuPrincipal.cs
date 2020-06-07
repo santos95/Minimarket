@@ -18,6 +18,10 @@ namespace CapaPresentacion
         public string Apellidos = "";
         public string Nombre = "";
         public int Acceso;
+        public string usuario;
+
+        LoginDataContext conexionLinq = new LoginDataContext();
+
         public FrmMenuPrincipal()
         {
             InitializeComponent();
@@ -50,7 +54,8 @@ namespace CapaPresentacion
         private void FrmMenuPrincipal_Load(object sender, EventArgs e)
         {
 
-        
+         //   btnUser.Text = usuario;
+            
         }
         private void colorClaro()
         {
@@ -121,16 +126,16 @@ namespace CapaPresentacion
             //tools
             HerramientasToolStripMenuItem.ForeColor = Color.FromArgb(0, 0, 0);
             QuiaToolStripMenuItem.ForeColor = Color.FromArgb(0, 0, 0);
-            AyudaToolStripMenuItem.ForeColor = Color.FromArgb(0, 0, 0);
+            PreferenciaToolStripMenuItem.ForeColor = Color.FromArgb(0, 0, 0);
             //lbl pnlBottom
             //userlbl.ForeColor = Color.FromArgb(0, 0, 0);
-            lblf.ForeColor = Color.FromArgb(0, 0, 0);
-            lblh.ForeColor = Color.FromArgb(0, 0, 0);
-            label3.ForeColor = Color.FromArgb(0, 0, 0);
-            label4.ForeColor = Color.FromArgb(0, 0, 0);
-            label5.ForeColor = Color.FromArgb(0, 0, 0);
-            label6.ForeColor = Color.FromArgb(0, 0, 0);
-            label7.ForeColor = Color.FromArgb(0, 0, 0);
+            lblValorFecha.ForeColor = Color.FromArgb(0, 0, 0);
+            lblValorHora.ForeColor = Color.FromArgb(0, 0, 0);
+            lblCaja.ForeColor = Color.FromArgb(0, 0, 0);
+            lblMontoCaja.ForeColor = Color.FromArgb(0, 0, 0);
+            lblTasa.ForeColor = Color.FromArgb(0, 0, 0);
+            lblValorTasa.ForeColor = Color.FromArgb(0, 0, 0);
+            lblFecha.ForeColor = Color.FromArgb(0, 0, 0);
 
         }
         //color oscuro de fondo
@@ -141,8 +146,9 @@ namespace CapaPresentacion
             panel1.BackColor = Color.FromArgb(23, 32 ,42);
             panel2.BackColor = Color.FromArgb(23, 32, 42);
             pnlUser.BackColor = Color.FromArgb(23, 32, 42);
-            btnCerrarSesion.BackColor = Color.FromArgb(28, 40, 51); btnCerrarSesion.ForeColor = Color.FromArgb(255, 255, 255);
-            
+            btnCerrarSesion.BackColor = Color.FromArgb(28, 40, 51);
+            btnCerrarSesion.ForeColor = Color.FromArgb(255, 255, 255);
+            btnUser.BackColor = Color.FromArgb(28, 40, 51);
 
             BarraTitulo.BackColor = Color.FromArgb(23, 32, 42);
             MenuVertical.BackColor = Color.FromArgb(23, 32, 42);
@@ -203,19 +209,21 @@ namespace CapaPresentacion
             //tools
             HerramientasToolStripMenuItem.ForeColor = Color.FromArgb(255, 255, 255);
             QuiaToolStripMenuItem.ForeColor = Color.FromArgb(255, 255, 255);
-            AyudaToolStripMenuItem.ForeColor = Color.FromArgb(255, 255, 255);
+            PreferenciaToolStripMenuItem.ForeColor = Color.FromArgb(255, 255, 255);
+            ayudaToolStripMenu.ForeColor = Color.FromArgb(255, 255, 255);
             //cALCULADORAToolStripMenuItem.ForeColor = Color.FromArgb(255, 255, 255);
             //exelToolStripMenuItem.ForeColor = Color.FromArgb(255, 255, 255);
 
             //lbl pnlBottom
             //userlbl.ForeColor = Color.FromArgb(255, 255, 255);
-            lblf.ForeColor = Color.FromArgb(255, 255, 255);
-            lblh.ForeColor = Color.FromArgb(255, 255, 255);
-            label3.ForeColor = Color.FromArgb(255, 255, 255);
-            label4.ForeColor = Color.FromArgb(255, 255, 255);
-            label5.ForeColor = Color.FromArgb(255, 255, 255);
-            label6.ForeColor = Color.FromArgb(255, 255, 255);
-            label7.ForeColor = Color.FromArgb(255, 255, 255);
+            lblValorFecha.ForeColor = Color.FromArgb(255, 255, 255);
+            lblValorHora.ForeColor = Color.FromArgb(255, 255, 255);
+            lblCaja.ForeColor = Color.FromArgb(255, 255, 255);
+            lblMontoCaja.ForeColor = Color.FromArgb(255, 255, 255);
+            lblTasa.ForeColor = Color.FromArgb(255, 255, 255);
+            lblValorTasa.ForeColor = Color.FromArgb(255, 255, 255);
+            lblFecha.ForeColor = Color.FromArgb(255, 255, 255);
+            btnUser.ForeColor = Color.FromArgb(255, 255, 255);
 
 
         }
@@ -237,9 +245,17 @@ namespace CapaPresentacion
 
         private void iconcerrar_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("¿Desea cerrar la aplicación?", "Advertencia",
-                MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            //Cerrar aplicación y cerrar sesión
+            if (MessageBox.Show("¿Desea cerrar la aplicación?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+
+                //Cerrar sesión
+                conexionLinq.spCerrarCesion(usuario);
+                //Cerrar aplicación
                 Application.Exit();
+
+            }
+
         }
 
         private void btnMenu_Click(object sender, EventArgs e)
@@ -350,8 +366,8 @@ namespace CapaPresentacion
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            lblh.Text = DateTime.Now.ToString("hh:mm:ss ");
-            lblf.Text = DateTime.Now.ToShortDateString();
+            lblValorHora.Text = DateTime.Now.ToString("hh:mm:ss ");
+            lblValorFecha.Text = DateTime.Now.ToShortDateString();
         }
 
         private void btncliente_Click(object sender, EventArgs e)
@@ -381,8 +397,15 @@ namespace CapaPresentacion
 
         private void btnCerrarSesion_Click(object sender, EventArgs e)
         {
+            //Cerrar sesión y mostrar login
             if (MessageBox.Show("¿Desea cerrar la sesión?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                //Cerrar sesión
+                conexionLinq.spCerrarCesion(usuario);
+
+                //Reiniciar aplicación - Show Login
                 Application.Restart();
+            }
 
         }
 
@@ -398,7 +421,7 @@ namespace CapaPresentacion
             //toolstrip
             HerramientasToolStripMenuItem.Text = "Tools";
             QuiaToolStripMenuItem.Text = "Guide";
-            AyudaToolStripMenuItem.Text = "Help";
+            PreferenciaToolStripMenuItem.Text = "Help";
             cALCULADORAToolStripMenuItem.Text = "Calculator";
 
             //Modulos
@@ -420,7 +443,7 @@ namespace CapaPresentacion
             // toolstrip
             HerramientasToolStripMenuItem.Text = "Herramientas";
             QuiaToolStripMenuItem.Text = "Guia";
-            AyudaToolStripMenuItem.Text = "Ayuda";
+            PreferenciaToolStripMenuItem.Text = "Ayuda";
             cALCULADORAToolStripMenuItem.Text = "Calculadora";
 
             //Modulos
@@ -535,6 +558,26 @@ namespace CapaPresentacion
         private void btnanularcompra_Click(object sender, EventArgs e)
         {
             AbrirFormEnPanel(FrmAnulacionCompra.GetInstancia());
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnUser_Click(object sender, EventArgs e)
+        {
+            this.panelContenedor.Controls.Add(pnlUser);
+
+            if (pnlUser.Visible == false)
+                pnlUser.Visible = true;
+            else
+                pnlUser.Visible = false;
+        }
+
+        private void panelContenedor_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

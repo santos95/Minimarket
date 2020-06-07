@@ -1,4 +1,4 @@
-USE Practica
+USE dbventasProyectTer
 GO
 ---Procedimientos de Logeo y control de acceso 
 
@@ -22,6 +22,20 @@ as
 SELECT TOP 1 * FROM tbl_control_acceso WHERE usuario = @cod_usuario ORDER BY dtConexion DESC
 GO
 
+CREATE PROC spCerrarCesion
+@strUsuario VARCHAR(100)
+AS
+BEGIN
+	
+	--obtiene el id de usuario
+	DECLARE @codUsuario INT
+	SELECT @codUsuario = cod_usuario FROM cat_usuario WHERE usuario = @strUsuario
+
+	--actualiza el estado
+	UPDATE tbl_control_acceso SET estadoacceso = 'D', dtDesconexion = GETDATE() WHERE usuario = @codUsuario AND estadoacceso = 'C';
+
+END
+GO
 
 
 -----------------------------------procedimiento de cargo----------------------------------------------------
@@ -1034,8 +1048,7 @@ BEGIN
 END
 GO
 
---control de acceso
---mostrar acceso
+-----------------------------------------------Conexiones-----------------------------------------------------
 
 CREATE PROC spControlAcceso
 @usuario varchar(100),
@@ -1139,38 +1152,7 @@ BEGIN
 END
 GO
 
-CREATE PROC spDesconectar
-@conexion INT
-@usuario  VARCHAR(100)
-AS
-BEGIN
-	
-	IF
-
-END
-
-select * from cat_usuario
-EXEC spControlAcceso 'Admin-1', 'Administrador1234'
-update cat_usuario set estado = 'A' where cod_usuario = 1
-exec spMostrarHistorialAcceso
-exec spCerrarCesion 'Admin-1'
-
-CREATE PROC spCerrarCesion
-@strUsuario VARCHAR(100)
-AS
-BEGIN
-	
-	--obtiene el id de usuario
-	DECLARE @codUsuario INT
-	SELECT @codUsuario = cod_usuario FROM cat_usuario WHERE usuario = @strUsuario
-
-	--actualiza el estado
-	UPDATE tbl_control_acceso SET estadoacceso = 'D', dtDesconexion = GETDATE() WHERE usuario = @codUsuario AND estadoacceso = 'C';
-
-END
-GO
-
---Cambiar contraseña
+--Actualizar o cambiar credenciales de acceso
 CREATE PROC spCambiarCredenciales
 @strUsuarioA		VARCHAR(100),
 @strUsuarioN		VARCHAR(100),
