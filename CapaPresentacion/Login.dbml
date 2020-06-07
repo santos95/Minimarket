@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="dbventasProyectTer" Class="LoginDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=dbventasProyectTer;Integrated Security=True" SettingsObjectName="CapaPresentacion.Properties.Settings" SettingsPropertyName="dbventasProyectTerConnectionString" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.accesologin" Method="accesologin">
+    <Parameter Name="usuario" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="password" Type="System.String" DbType="VarChar(100)" />
+    <ElementType Name="accesologinResult">
+      <Column Name="rolacceso" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="usuario" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="pass" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="cod_usuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.estadoconexion" Method="estadoconexion">
+    <Parameter Name="cod_usuario" Type="System.Int32" DbType="Int" />
+    <ElementType Name="estadoconexionResult">
+      <Column Name="id_control_acceso" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="usuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="estadoacceso" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="dtConexion" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="dtDesconexion" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spCerrarCesion" Method="spCerrarCesion">
+    <Parameter Name="strUsuario" Type="System.String" DbType="VarChar(100)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spControlAcceso" Method="spControlAcceso">
+    <Parameter Name="usuario" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="contraseña" Type="System.String" DbType="VarChar(100)" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

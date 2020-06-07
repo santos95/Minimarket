@@ -1,0 +1,403 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Practica" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=Practica;Integrated Security=True" SettingsObjectName="CapaDatos.Properties.Settings" SettingsPropertyName="cn" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.articulo" Member="articulo">
+    <Type Name="articulo">
+      <Column Name="id_articulo" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nombre" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="unidadMedida" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="descripcion" Type="System.String" DbType="VarChar(1024)" CanBeNull="true" />
+      <Column Name="imagen" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="codigo_barra" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="marca" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="categoria_articulo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_presentacion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="articulo_articuloproveedor" Member="articuloproveedor" ThisKey="id_articulo" OtherKey="cod_articulo" Type="articuloproveedor" />
+      <Association Name="categoria_articulo" Member="categoria" ThisKey="categoria_articulo" OtherKey="id_categoria" Type="categoria" IsForeignKey="true" />
+      <Association Name="presentacion_articulo" Member="presentacion" ThisKey="id_presentacion" OtherKey="id_presentacion" Type="presentacion" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.unidad_medida" Member="unidad_medida">
+    <Type Name="unidad_medida">
+      <Column Name="idUnidMed" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="strUnidadMedida" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="strDescripcion" Type="System.String" DbType="VarChar(120) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.articuloproveedor" Member="articuloproveedor">
+    <Type Name="articuloproveedor">
+      <Column Name="idArtProv" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="cod_proveedor" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="cod_articulo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="estado" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Association Name="articulo_articuloproveedor" Member="articulo" ThisKey="cod_articulo" OtherKey="id_articulo" Type="articulo" IsForeignKey="true" />
+      <Association Name="proveedor_articuloproveedor" Member="proveedor" ThisKey="cod_proveedor" OtherKey="id_proveedor" Type="proveedor" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.categoria" Member="categoria">
+    <Type Name="categoria">
+      <Column Name="id_categoria" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nombrecat" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="observacion" Type="System.String" DbType="VarChar(256)" CanBeNull="true" />
+      <Column Name="fecharegistro" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Association Name="categoria_articulo" Member="articulo" ThisKey="id_categoria" OtherKey="categoria_articulo" Type="articulo" />
+    </Type>
+  </Table>
+  <Table Name="dbo.contactoproveedor" Member="contactoproveedor">
+    <Type Name="contactoproveedor">
+      <Column Name="id_ContactoProv" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="id_Proveedor" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Celular" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Telefono" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(80) NOT NULL" CanBeNull="false" />
+      <Column Name="Estado" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Association Name="proveedor_contactoproveedor" Member="proveedor" ThisKey="id_Proveedor" OtherKey="id_proveedor" Type="proveedor" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.marca" Member="marca">
+    <Type Name="marca">
+      <Column Name="id_marca" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Marca_Producto" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.persona" Member="persona">
+    <Type Name="persona">
+      <Column Name="id_persona" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="cedula_ruc" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="nombre_pers_empresa" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="apellido_razonsocial" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="fechanac_fechaconst" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="telefono" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="direccion" Type="System.String" DbType="VarChar(90)" CanBeNull="true" />
+      <Association Name="persona_proveedor" Member="proveedor" ThisKey="id_persona" OtherKey="id_persona" Type="proveedor" />
+    </Type>
+  </Table>
+  <Table Name="dbo.presentacion" Member="presentacion">
+    <Type Name="presentacion">
+      <Column Name="id_presentacion" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nombre" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="descripcion" Type="System.String" DbType="VarChar(256)" CanBeNull="true" />
+      <Column Name="fecharegistro" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Association Name="presentacion_articulo" Member="articulo" ThisKey="id_presentacion" OtherKey="id_presentacion" Type="articulo" />
+    </Type>
+  </Table>
+  <Table Name="dbo.proveedor" Member="proveedor">
+    <Type Name="proveedor">
+      <Column Name="id_proveedor" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="id_persona" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="politica_venta" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="observacion" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="sitioWeb" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="estado" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Association Name="proveedor_articuloproveedor" Member="articuloproveedor" ThisKey="id_proveedor" OtherKey="cod_proveedor" Type="articuloproveedor" />
+      <Association Name="proveedor_contactoproveedor" Member="contactoproveedor" ThisKey="id_proveedor" OtherKey="id_Proveedor" Type="contactoproveedor" />
+      <Association Name="persona_proveedor" Member="persona" ThisKey="id_persona" OtherKey="id_persona" Type="persona" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.spbusca_persona" Method="spbusca_persona">
+    <Parameter Name="textobuscar" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="spbusca_personaResult">
+      <Column Name="id_persona" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="cedula_ruc" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="nombre_pers_empresa" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="apellido_razonsocial" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="fechanac_fechaconst" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="telefono" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="direccion" Type="System.String" DbType="VarChar(90)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spmostrar_unidad" Method="spmostrar_unidad">
+    <ElementType Name="spmostrar_unidadResult">
+      <Column Name="idUnidMed" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="strUnidadMedida" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="strDescripcion" Type="System.String" DbType="VarChar(120) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spbuscar_articulo" Method="spbuscar_articulo">
+    <Parameter Name="textobuscar" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="spbuscar_articuloResult">
+      <Column Name="id_articulo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="nombre" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="unidadMedida" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="descripcion" Type="System.String" DbType="VarChar(1024)" CanBeNull="true" />
+      <Column Name="imagen" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" />
+      <Column Name="codigo_barra" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="marca" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="categoria_articulo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_presentacion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spbuscar_categoria" Method="spbuscar_categoria">
+    <Parameter Name="textobuscar" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="spbuscar_categoriaResult">
+      <Column Name="id_categoria" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="nombrecat" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="observacion" Type="System.String" DbType="VarChar(256)" CanBeNull="true" />
+      <Column Name="fecharegistro" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spbuscar_contacto" Method="spbuscar_contacto">
+    <Parameter Name="textobuscar" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="spbuscar_contactoResult">
+      <Column Name="id_ContactoProv" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="id_Proveedor" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Celular" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Telefono" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(80) NOT NULL" CanBeNull="false" />
+      <Column Name="Estado" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spbuscar_marca" Method="spbuscar_marca">
+    <Parameter Name="textobuscar" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="spbuscar_marcaResult">
+      <Column Name="id_marca" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Marca_Producto" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spbuscar_presentacion" Method="spbuscar_presentacion">
+    <Parameter Name="textobuscar" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="spbuscar_presentacionResult">
+      <Column Name="id_presentacion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="nombre" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="descripcion" Type="System.String" DbType="VarChar(256)" CanBeNull="true" />
+      <Column Name="fecharegistro" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spbuscar_Proveedor" Method="spbuscar_Proveedor">
+    <Parameter Name="textobuscar" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="spbuscar_ProveedorResult">
+      <Column Name="id_proveedor" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="id_persona" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="politica_venta" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="observacion" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="sitioWeb" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="estado" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spbuscar_unidad" Method="spbuscar_unidad">
+    <Parameter Name="textobuscar" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="spbuscar_unidadResult">
+      <Column Name="idUnidMed" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="strUnidadMedida" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="strDescripcion" Type="System.String" DbType="VarChar(120) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.speditar_articulo" Method="speditar_articulo">
+    <Parameter Name="id_articulo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="nombre" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="unidadMedida" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="descripcion" Type="System.String" DbType="VarChar(1024)" />
+    <Parameter Name="imagen" Type="System.Data.Linq.Binary" DbType="Image" />
+    <Parameter Name="codigo_barra" Type="System.String" DbType="VarChar(40)" />
+    <Parameter Name="marca" Type="System.String" DbType="VarChar(500)" />
+    <Parameter Name="categoria_articulo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="id_presentacion" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.speditar_categoria" Method="speditar_categoria">
+    <Parameter Name="id_categoria" Type="System.Int32" DbType="Int" />
+    <Parameter Name="nombrecat" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="observacion" Type="System.String" DbType="VarChar(256)" />
+    <Parameter Name="fecharegistro" Type="System.DateTime" DbType="Date" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.speditar_marca" Method="speditar_marca">
+    <Parameter Name="id_marca" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Marca_Producto" Parameter="marca_Producto" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.speditar_persona" Method="speditar_persona">
+    <Parameter Name="id_persona" Type="System.Int32" DbType="Int" />
+    <Parameter Name="cedula_ruc" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="nombre_pers_empresa" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="apellido_razonsocial" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="fechanac_fechaconst" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="telefono" Type="System.Int32" DbType="Int" />
+    <Parameter Name="direccion" Type="System.String" DbType="VarChar(90)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.speditar_presentacion" Method="speditar_presentacion">
+    <Parameter Name="id_presentacion" Type="System.Int32" DbType="Int" />
+    <Parameter Name="nombre" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="descripcion" Type="System.String" DbType="VarChar(256)" />
+    <Parameter Name="fecharegistro" Type="System.DateTime" DbType="Date" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.speditar_proveedor" Method="speditar_proveedor">
+    <Parameter Name="id_proveedor" Type="System.Int32" DbType="Int" />
+    <Parameter Name="id_persona" Type="System.Int32" DbType="Int" />
+    <Parameter Name="politica_venta" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="observacion" Type="System.String" DbType="VarChar(200)" />
+    <Parameter Name="sitioWeb" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="estado" Type="System.String" DbType="VarChar(1)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.speditar_unidad" Method="speditar_unidad">
+    <Parameter Name="idUnidMed" Type="System.Int32" DbType="Int" />
+    <Parameter Name="strUnidadMedida" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="strDescripcion" Type="System.String" DbType="VarChar(120)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.speliminar_articulo" Method="speliminar_articulo">
+    <Parameter Name="id_articulo" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.speliminar_categoria" Method="speliminar_categoria">
+    <Parameter Name="id_categoria" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.speliminar_contacto" Method="speliminar_contacto">
+    <Parameter Name="id_ContactoProv" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.speliminar_marca" Method="speliminar_marca">
+    <Parameter Name="id_marca" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.speliminar_persona" Method="speliminar_persona">
+    <Parameter Name="id_persona" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.speliminar_presentacion" Method="speliminar_presentacion">
+    <Parameter Name="id_presentacion" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.speliminar_proveedor" Method="speliminar_proveedor">
+    <Parameter Name="id_proveedor" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.speliminar_Unidad" Method="speliminar_Unidad">
+    <Parameter Name="idUnidMed" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spinsertar_articulo" Method="spinsertar_articulo">
+    <Parameter Name="id_articulo" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="nombre" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="unidadMedida" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="descripcion" Type="System.String" DbType="VarChar(1024)" />
+    <Parameter Name="imagen" Type="System.Data.Linq.Binary" DbType="Image" />
+    <Parameter Name="codigo_barra" Type="System.String" DbType="VarChar(40)" />
+    <Parameter Name="marca" Type="System.String" DbType="VarChar(500)" />
+    <Parameter Name="categoria_articulo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="id_presentacion" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spinsertar_categoria" Method="spinsertar_categoria">
+    <Parameter Name="id_categoria" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="nombrecat" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="observacion" Type="System.String" DbType="VarChar(256)" />
+    <Parameter Name="fecharegistro" Type="System.DateTime" DbType="Date" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spinsertar_contacto" Method="spinsertar_contacto">
+    <Parameter Name="id_ContactoProv" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="id_Proveedor" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Celular" Parameter="celular" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Telefono" Parameter="telefono" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NVarChar(80)" />
+    <Parameter Name="Estado" Parameter="estado" Type="System.String" DbType="VarChar(1)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spinsertar_marca" Method="spinsertar_marca">
+    <Parameter Name="id_marca" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="Marca_Producto" Parameter="marca_Producto" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spinsertar_persona" Method="spinsertar_persona">
+    <Parameter Name="id_persona" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="cedula_ruc" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="nombre_pers_empresa" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="apellido_razonsocial" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="fechanac_fechaconst" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="telefono" Type="System.Int32" DbType="Int" />
+    <Parameter Name="direccion" Type="System.String" DbType="VarChar(90)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spinsertar_presentacion" Method="spinsertar_presentacion">
+    <Parameter Name="id_presentacion" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="nombre" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="descripcion" Type="System.String" DbType="VarChar(256)" />
+    <Parameter Name="fecharegistro" Type="System.DateTime" DbType="Date" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spinsertar_proveedor" Method="spinsertar_proveedor">
+    <Parameter Name="id_proveedor" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="id_persona" Type="System.Int32" DbType="Int" />
+    <Parameter Name="politica_venta" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="observacion" Type="System.String" DbType="VarChar(200)" />
+    <Parameter Name="sitioWeb" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="estado" Type="System.String" DbType="VarChar(1)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spinsertar_unidad" Method="spinsertar_unidad">
+    <Parameter Name="idUnidMed" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="strUnidadMedida" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="strDescripcion" Type="System.String" DbType="VarChar(120)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spmostrar_articulo" Method="spmostrar_articulo">
+    <ElementType Name="spmostrar_articuloResult">
+      <Column Name="id_articulo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="nombre" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="unidadMedida" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="descripcion" Type="System.String" DbType="VarChar(1024)" CanBeNull="true" />
+      <Column Name="imagen" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" />
+      <Column Name="codigo_barra" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="marca" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="categoria_articulo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_presentacion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spmostrar_categoria" Method="spmostrar_categoria">
+    <ElementType Name="spmostrar_categoriaResult">
+      <Column Name="id_categoria" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="nombrecat" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="observacion" Type="System.String" DbType="VarChar(256)" CanBeNull="true" />
+      <Column Name="fecharegistro" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spmostrar_contacto" Method="spmostrar_contacto">
+    <ElementType Name="spmostrar_contactoResult">
+      <Column Name="id_ContactoProv" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="id_Proveedor" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Celular" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Telefono" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(80) NOT NULL" CanBeNull="false" />
+      <Column Name="Estado" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spmostrar_marca" Method="spmostrar_marca">
+    <ElementType Name="spmostrar_marcaResult">
+      <Column Name="id_marca" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Marca_Producto" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spmostrar_persona" Method="spmostrar_persona">
+    <ElementType Name="spmostrar_personaResult">
+      <Column Name="id_persona" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="cedula_ruc" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="nombre_pers_empresa" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="apellido_razonsocial" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="fechanac_fechaconst" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="telefono" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="direccion" Type="System.String" DbType="VarChar(90)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spmostrar_presentacion" Method="spmostrar_presentacion">
+    <ElementType Name="spmostrar_presentacionResult">
+      <Column Name="id_presentacion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="nombre" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="descripcion" Type="System.String" DbType="VarChar(256)" CanBeNull="true" />
+      <Column Name="fecharegistro" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spmostrar_proveedor" Method="spmostrar_proveedor">
+    <ElementType Name="spmostrar_proveedorResult">
+      <Column Name="id_proveedor" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="id_persona" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="politica_venta" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="observacion" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="sitioWeb" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="estado" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>

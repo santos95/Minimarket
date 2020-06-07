@@ -1,0 +1,45 @@
+c:\users\admin\documents\visual studio 2015\Projects\SistemaChombo\CapaNegocio\bin\Debug\CapaNegocio.dll
+c:\users\admin\documents\visual studio 2015\Projects\SistemaChombo\CapaNegocio\bin\Debug\CapaNegocio.pdb
+c:\users\admin\documents\visual studio 2015\Projects\SistemaChombo\CapaNegocio\bin\Debug\CapaDatos.dll
+c:\users\admin\documents\visual studio 2015\Projects\SistemaChombo\CapaNegocio\bin\Debug\CapaDatos.pdb
+c:\users\admin\documents\visual studio 2015\Projects\SistemaChombo\CapaNegocio\obj\Debug\CapaNegocio.csprojResolveAssemblyReference.cache
+c:\users\admin\documents\visual studio 2015\Projects\SistemaChombo\CapaNegocio\obj\Debug\CapaNegocio.dll
+c:\users\admin\documents\visual studio 2015\Projects\SistemaChombo\CapaNegocio\obj\Debug\CapaNegocio.pdb
+C:\Users\omarp\OneDrive\Escritorio\iconos aqui\SistemaChombo\CapaNegocio\bin\Debug\CapaNegocio.dll
+C:\Users\omarp\OneDrive\Escritorio\iconos aqui\SistemaChombo\CapaNegocio\bin\Debug\CapaNegocio.pdb
+C:\Users\omarp\OneDrive\Escritorio\iconos aqui\SistemaChombo\CapaNegocio\bin\Debug\CapaDatos.dll
+C:\Users\omarp\OneDrive\Escritorio\iconos aqui\SistemaChombo\CapaNegocio\bin\Debug\CapaDatos.pdb
+C:\Users\omarp\OneDrive\Escritorio\iconos aqui\SistemaChombo\CapaNegocio\obj\Debug\CapaNegocio.csprojResolveAssemblyReference.cache
+C:\Users\omarp\OneDrive\Escritorio\iconos aqui\SistemaChombo\CapaNegocio\obj\Debug\CapaNegocio.dll
+C:\Users\omarp\OneDrive\Escritorio\iconos aqui\SistemaChombo\CapaNegocio\obj\Debug\CapaNegocio.pdb
+C:\Users\50588\Downloads\sprites\Subir en mega\iconos aqui\SistemaChombo\CapaNegocio\bin\Debug\CapaNegocio.dll
+C:\Users\50588\Downloads\sprites\Subir en mega\iconos aqui\SistemaChombo\CapaNegocio\bin\Debug\CapaNegocio.pdb
+C:\Users\50588\Downloads\sprites\Subir en mega\iconos aqui\SistemaChombo\CapaNegocio\bin\Debug\CapaDatos.dll
+C:\Users\50588\Downloads\sprites\Subir en mega\iconos aqui\SistemaChombo\CapaNegocio\bin\Debug\CapaDatos.pdb
+C:\Users\50588\Downloads\sprites\Subir en mega\iconos aqui\SistemaChombo\CapaNegocio\obj\Debug\CapaNegocio.csprojResolveAssemblyReference.cache
+C:\Users\50588\Downloads\sprites\Subir en mega\iconos aqui\SistemaChombo\CapaNegocio\obj\Debug\CapaNegocio.dll
+C:\Users\50588\Downloads\sprites\Subir en mega\iconos aqui\SistemaChombo\CapaNegocio\obj\Debug\CapaNegocio.pdb
+C:\Users\omarp\Downloads\Avance\iconos aqui\SistemaChombo\CapaNegocio\bin\Debug\CapaNegocio.dll
+C:\Users\omarp\Downloads\Avance\iconos aqui\SistemaChombo\CapaNegocio\bin\Debug\CapaNegocio.pdb
+C:\Users\omarp\Downloads\Avance\iconos aqui\SistemaChombo\CapaNegocio\bin\Debug\CapaDatos.dll
+C:\Users\omarp\Downloads\Avance\iconos aqui\SistemaChombo\CapaNegocio\bin\Debug\CapaDatos.pdb
+C:\Users\omarp\Downloads\Avance\iconos aqui\SistemaChombo\CapaNegocio\obj\Debug\CapaNegocio.csprojResolveAssemblyReference.cache
+C:\Users\omarp\Downloads\Avance\iconos aqui\SistemaChombo\CapaNegocio\obj\Debug\CapaNegocio.dll
+C:\Users\omarp\Downloads\Avance\iconos aqui\SistemaChombo\CapaNegocio\obj\Debug\CapaNegocio.pdb
+C:\Users\omarp\Downloads\Avance\Aqui jorge\iconos aqui\SistemaChombo\CapaNegocio\bin\Debug\CapaNegocio.dll
+C:\Users\omarp\Downloads\Avance\Aqui jorge\iconos aqui\SistemaChombo\CapaNegocio\bin\Debug\CapaNegocio.pdb
+C:\Users\omarp\Downloads\Avance\Aqui jorge\iconos aqui\SistemaChombo\CapaNegocio\bin\Debug\CapaDatos.dll
+C:\Users\omarp\Downloads\Avance\Aqui jorge\iconos aqui\SistemaChombo\CapaNegocio\bin\Debug\CapaDatos.pdb
+C:\Users\omarp\Downloads\Avance\Aqui jorge\iconos aqui\SistemaChombo\CapaNegocio\obj\Debug\CapaNegocio.csprojResolveAssemblyReference.cache
+C:\Users\omarp\Downloads\Avance\Aqui jorge\iconos aqui\SistemaChombo\CapaNegocio\obj\Debug\CapaNegocio.dll
+C:\Users\omarp\Downloads\Avance\Aqui jorge\iconos aqui\SistemaChombo\CapaNegocio\obj\Debug\CapaNegocio.pdb
+C:\Users\Santos Ortiz\Documents\Aqui jorge\iconos aqui\SistemaChombo\CapaNegocio\bin\Debug\CapaNegocio.dll
+C:\Users\Santos Ortiz\Documents\Aqui jorge\iconos aqui\SistemaChombo\CapaNegocio\bin\Debug\CapaNegocio.pdb
+C:\Users\Santos Ortiz\Documents\Aqui jorge\iconos aqui\SistemaChombo\CapaNegocio\bin\Debug\CapaDatos.dll
+C:\Users\Santos Ortiz\Documents\Aqui jorge\iconos aqui\SistemaChombo\CapaNegocio\bin\Debug\CapaDatos.pdb
+C:\Users\Santos Ortiz\Documents\Aqui jorge\iconos aqui\SistemaChombo\CapaNegocio\bin\Debug\CapaDatos.dll.config
+C:\Users\Santos Ortiz\Documents\Aqui jorge\iconos aqui\SistemaChombo\CapaNegocio\obj\Debug\CapaNegocio.csprojAssemblyReference.cache
+C:\Users\Santos Ortiz\Documents\Aqui jorge\iconos aqui\SistemaChombo\CapaNegocio\obj\Debug\CapaNegocio.csproj.CoreCompileInputs.cache
+C:\Users\Santos Ortiz\Documents\Aqui jorge\iconos aqui\SistemaChombo\CapaNegocio\obj\Debug\CapaNegocio.csproj.CopyComplete
+C:\Users\Santos Ortiz\Documents\Aqui jorge\iconos aqui\SistemaChombo\CapaNegocio\obj\Debug\CapaNegocio.dll
+C:\Users\Santos Ortiz\Documents\Aqui jorge\iconos aqui\SistemaChombo\CapaNegocio\obj\Debug\CapaNegocio.pdb
