@@ -93,6 +93,7 @@
             this.iconcerrar = new System.Windows.Forms.PictureBox();
             this.MenuVertical = new System.Windows.Forms.Panel();
             this.pnladmin = new System.Windows.Forms.Panel();
+            this.btnConexiones = new System.Windows.Forms.Button();
             this.btnusuario = new System.Windows.Forms.Button();
             this.btnroles = new System.Windows.Forms.Button();
             this.btnCargo = new System.Windows.Forms.Button();
@@ -113,6 +114,7 @@
             this.btnMenu = new System.Windows.Forms.PictureBox();
             this.panelContenedor = new System.Windows.Forms.Panel();
             this.pnlUser = new System.Windows.Forms.Panel();
+            this.btnCredenciales = new System.Windows.Forms.Button();
             this.btnCerrarSesion = new System.Windows.Forms.Button();
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.idiomaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -121,6 +123,7 @@
             this.fondoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.oscuroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.claroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnHistorialEmpleado = new System.Windows.Forms.Button();
             this.pnlventas.SuspendLayout();
             this.pnlcompras.SuspendLayout();
             this.pnlcaja.SuspendLayout();
@@ -464,9 +467,8 @@
             // 
             this.btnMcaja.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.btnMcaja.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnMcaja.FlatAppearance.BorderSize = 0;
             this.btnMcaja.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMcaja.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMcaja.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
             this.btnMcaja.ForeColor = System.Drawing.Color.Black;
             this.btnMcaja.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnMcaja.Location = new System.Drawing.Point(27, 101);
@@ -577,8 +579,8 @@
             // 
             // btnUser
             // 
-            this.btnUser.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(109)))), ((int)(((byte)(126)))));
-            this.btnUser.FlatAppearance.BorderSize = 2;
+            this.btnUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(109)))), ((int)(((byte)(126)))));
+            this.btnUser.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnUser.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnUser.Font = new System.Drawing.Font("Arial Black", 10F);
             this.btnUser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -587,7 +589,7 @@
             this.btnUser.Size = new System.Drawing.Size(165, 40);
             this.btnUser.TabIndex = 47;
             this.btnUser.Text = "Usuario";
-            this.btnUser.UseVisualStyleBackColor = true;
+            this.btnUser.UseVisualStyleBackColor = false;
             this.btnUser.Click += new System.EventHandler(this.btnUser_Click);
             // 
             // lblFecha
@@ -884,7 +886,7 @@
             this.iconminimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.iconminimizar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.iconminimizar.Image = ((System.Drawing.Image)(resources.GetObject("iconminimizar.Image")));
-            this.iconminimizar.Location = new System.Drawing.Point(735, 3);
+            this.iconminimizar.Location = new System.Drawing.Point(730, 3);
             this.iconminimizar.Name = "iconminimizar";
             this.iconminimizar.Size = new System.Drawing.Size(30, 30);
             this.iconminimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -897,7 +899,7 @@
             this.iconcerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.iconcerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.iconcerrar.Image = ((System.Drawing.Image)(resources.GetObject("iconcerrar.Image")));
-            this.iconcerrar.Location = new System.Drawing.Point(770, 3);
+            this.iconcerrar.Location = new System.Drawing.Point(765, 3);
             this.iconcerrar.Name = "iconcerrar";
             this.iconcerrar.Size = new System.Drawing.Size(30, 30);
             this.iconcerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -931,6 +933,8 @@
             // pnladmin
             // 
             this.pnladmin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(232)))), ((int)(((byte)(232)))));
+            this.pnladmin.Controls.Add(this.btnHistorialEmpleado);
+            this.pnladmin.Controls.Add(this.btnConexiones);
             this.pnladmin.Controls.Add(this.btnusuario);
             this.pnladmin.Controls.Add(this.btnroles);
             this.pnladmin.Controls.Add(this.btnCargo);
@@ -942,6 +946,26 @@
             this.pnladmin.Size = new System.Drawing.Size(180, 207);
             this.pnladmin.TabIndex = 12;
             this.pnladmin.Visible = false;
+            // 
+            // btnConexiones
+            // 
+            this.btnConexiones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(109)))), ((int)(((byte)(126)))));
+            this.btnConexiones.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnConexiones.FlatAppearance.BorderSize = 0;
+            this.btnConexiones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConexiones.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConexiones.ForeColor = System.Drawing.Color.Black;
+            this.btnConexiones.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConexiones.Location = new System.Drawing.Point(0, 150);
+            this.btnConexiones.Name = "btnConexiones";
+            this.btnConexiones.Padding = new System.Windows.Forms.Padding(0, 0, 75, 0);
+            this.btnConexiones.Size = new System.Drawing.Size(180, 30);
+            this.btnConexiones.TabIndex = 29;
+            this.btnConexiones.Text = "Conexiones";
+            this.btnConexiones.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnConexiones.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnConexiones.UseVisualStyleBackColor = false;
+            this.btnConexiones.Click += new System.EventHandler(this.btnConexiones_Click);
             // 
             // btnusuario
             // 
@@ -978,6 +1002,7 @@
             this.btnroles.Text = "Roles";
             this.btnroles.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnroles.UseVisualStyleBackColor = false;
+            this.btnroles.Click += new System.EventHandler(this.btnroles_Click);
             // 
             // btnCargo
             // 
@@ -1039,9 +1064,8 @@
             // 
             this.btnMadmin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.btnMadmin.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnMadmin.FlatAppearance.BorderSize = 0;
             this.btnMadmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMadmin.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMadmin.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
             this.btnMadmin.ForeColor = System.Drawing.Color.Black;
             this.btnMadmin.Image = ((System.Drawing.Image)(resources.GetObject("btnMadmin.Image")));
             this.btnMadmin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1221,7 +1245,6 @@
             // 
             this.btnMGestion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.btnMGestion.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnMGestion.FlatAppearance.BorderSize = 0;
             this.btnMGestion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMGestion.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
             this.btnMGestion.ForeColor = System.Drawing.Color.Black;
@@ -1241,9 +1264,8 @@
             // 
             this.btnMventas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.btnMventas.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnMventas.FlatAppearance.BorderSize = 0;
             this.btnMventas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMventas.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMventas.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
             this.btnMventas.ForeColor = System.Drawing.Color.Black;
             this.btnMventas.Image = ((System.Drawing.Image)(resources.GetObject("btnMventas.Image")));
             this.btnMventas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1261,9 +1283,8 @@
             // 
             this.btnMcompras.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.btnMcompras.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnMcompras.FlatAppearance.BorderSize = 0;
             this.btnMcompras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMcompras.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMcompras.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
             this.btnMcompras.ForeColor = System.Drawing.Color.Black;
             this.btnMcompras.Image = ((System.Drawing.Image)(resources.GetObject("btnMcompras.Image")));
             this.btnMcompras.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1309,12 +1330,30 @@
             // 
             this.pnlUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.pnlUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(109)))), ((int)(((byte)(126)))));
+            this.pnlUser.Controls.Add(this.btnCredenciales);
             this.pnlUser.Controls.Add(this.btnCerrarSesion);
-            this.pnlUser.Location = new System.Drawing.Point(0, 605);
+            this.pnlUser.Location = new System.Drawing.Point(0, 576);
             this.pnlUser.Name = "pnlUser";
-            this.pnlUser.Size = new System.Drawing.Size(164, 60);
+            this.pnlUser.Size = new System.Drawing.Size(164, 89);
             this.pnlUser.TabIndex = 1;
             this.pnlUser.Visible = false;
+            // 
+            // btnCredenciales
+            // 
+            this.btnCredenciales.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnCredenciales.BackColor = System.Drawing.Color.White;
+            this.btnCredenciales.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnCredenciales.Font = new System.Drawing.Font("Arial Black", 10F);
+            this.btnCredenciales.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnCredenciales.Image = ((System.Drawing.Image)(resources.GetObject("btnCredenciales.Image")));
+            this.btnCredenciales.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnCredenciales.Location = new System.Drawing.Point(3, 45);
+            this.btnCredenciales.Name = "btnCredenciales";
+            this.btnCredenciales.Size = new System.Drawing.Size(159, 40);
+            this.btnCredenciales.TabIndex = 48;
+            this.btnCredenciales.Text = "   Credenciales";
+            this.btnCredenciales.UseVisualStyleBackColor = false;
+            this.btnCredenciales.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnCerrarSesion
             // 
@@ -1327,7 +1366,7 @@
             this.btnCerrarSesion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCerrarSesion.Location = new System.Drawing.Point(2, 5);
             this.btnCerrarSesion.Name = "btnCerrarSesion";
-            this.btnCerrarSesion.Size = new System.Drawing.Size(159, 35);
+            this.btnCerrarSesion.Size = new System.Drawing.Size(159, 40);
             this.btnCerrarSesion.TabIndex = 47;
             this.btnCerrarSesion.Text = "      Cerrar Sesión";
             this.btnCerrarSesion.UseVisualStyleBackColor = false;
@@ -1384,6 +1423,26 @@
             this.claroToolStripMenuItem.Name = "claroToolStripMenuItem";
             this.claroToolStripMenuItem.Size = new System.Drawing.Size(67, 22);
             // 
+            // btnHistorialEmpleado
+            // 
+            this.btnHistorialEmpleado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(109)))), ((int)(((byte)(126)))));
+            this.btnHistorialEmpleado.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnHistorialEmpleado.FlatAppearance.BorderSize = 0;
+            this.btnHistorialEmpleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHistorialEmpleado.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHistorialEmpleado.ForeColor = System.Drawing.Color.Black;
+            this.btnHistorialEmpleado.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHistorialEmpleado.Location = new System.Drawing.Point(0, 180);
+            this.btnHistorialEmpleado.Name = "btnHistorialEmpleado";
+            this.btnHistorialEmpleado.Padding = new System.Windows.Forms.Padding(0, 0, 75, 0);
+            this.btnHistorialEmpleado.Size = new System.Drawing.Size(180, 30);
+            this.btnHistorialEmpleado.TabIndex = 30;
+            this.btnHistorialEmpleado.Text = "Historial";
+            this.btnHistorialEmpleado.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnHistorialEmpleado.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnHistorialEmpleado.UseVisualStyleBackColor = false;
+            this.btnHistorialEmpleado.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // FrmMenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1395,6 +1454,7 @@
             this.Controls.Add(this.BarraTitulo);
             this.Controls.Add(this.MenuVertical);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmMenuPrincipal";
             this.Text = "FrmMenuPrincipal";
@@ -1517,5 +1577,8 @@
         private System.Windows.Forms.Button btnPersona;
         private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.Label lblHora;
+        public System.Windows.Forms.Button btnCredenciales;
+        private System.Windows.Forms.Button btnConexiones;
+        private System.Windows.Forms.Button btnHistorialEmpleado;
     }
 }

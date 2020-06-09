@@ -309,6 +309,16 @@ namespace CapaPresentacion
             v.soloLetras(e);
         }
 
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
         /* private void btnImprimir_Click(object sender, EventArgs e)
          {
              Reportes.FrmReporteCategoria frm = new Reportes.FrmReporteCategoria();

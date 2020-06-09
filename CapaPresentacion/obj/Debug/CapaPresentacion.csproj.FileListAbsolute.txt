@@ -243,3 +243,10 @@ C:\Users\Santos Ortiz\Documents\Aqui jorge\iconos aqui\SistemaChombo\CapaPresent
 C:\Users\Santos Ortiz\Documents\Aqui jorge\iconos aqui\SistemaChombo\CapaPresentacion\obj\Debug\CapaPresentacion.dll
 C:\Users\Santos Ortiz\Documents\Aqui jorge\iconos aqui\SistemaChombo\CapaPresentacion\obj\Debug\CapaPresentacion.pdb
 C:\Users\Santos Ortiz\Documents\Aqui jorge\iconos aqui\SistemaChombo\CapaPresentacion\obj\Debug\CapaPresentacion.FrmLogin.resources
+C:\Users\Santos Ortiz\Documents\Aqui jorge\iconos aqui\SistemaChombo\CapaPresentacion\obj\Debug\CapaPresentacion.Administración.FrmActualizaCredenciales.resources
+C:\Users\Santos Ortiz\Documents\Aqui jorge\iconos aqui\SistemaChombo\CapaPresentacion\obj\Debug\CapaPresentacion.Administración.FrmRoles.resources
+C:\Users\Santos Ortiz\Documents\Aqui jorge\iconos aqui\SistemaChombo\CapaPresentacion\obj\Debug\CapaPresentacion.Administración.Conexiones.resources
+C:\Users\Santos Ortiz\Documents\Aqui jorge\iconos aqui\SistemaChombo\CapaPresentacion\obj\Debug\CapaPresentacion.Administración.FrmCargo.resources
+C:\Users\Santos Ortiz\Documents\Aqui jorge\iconos aqui\SistemaChombo\CapaPresentacion\obj\Debug\CapaPresentacion.Administración.FrmEmpleado.resources
+C:\Users\Santos Ortiz\Documents\Aqui jorge\iconos aqui\SistemaChombo\CapaPresentacion\obj\Debug\CapaPresentacion.Administración.FrmHistorialEmpleado.resources
+C:\Users\Santos Ortiz\Documents\Aqui jorge\iconos aqui\SistemaChombo\CapaPresentacion\obj\Debug\CapaPresentacion.FrmSplashScreen.resources

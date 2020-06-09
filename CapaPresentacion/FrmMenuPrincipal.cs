@@ -223,6 +223,7 @@ namespace CapaPresentacion
             lblTasa.ForeColor = Color.FromArgb(255, 255, 255);
             lblValorTasa.ForeColor = Color.FromArgb(255, 255, 255);
             lblFecha.ForeColor = Color.FromArgb(255, 255, 255);
+            lblHora.ForeColor = Color.FromArgb(255, 255, 255);
             btnUser.ForeColor = Color.FromArgb(255, 255, 255);
 
 
@@ -522,12 +523,19 @@ namespace CapaPresentacion
 
         private void btnEmpleado_Click_1(object sender, EventArgs e)
         {
-            AbrirFormEnPanel(new FrmEmpleado());
+
+            Administración.FrmEmpleado FrmE = new Administración.FrmEmpleado();
+            AbrirFormEnPanel(FrmE);
+
         }
 
         private void btnCargo_Click(object sender, EventArgs e)
         {
-            
+
+            CapaPresentacion.Administración.FrmCargo FrmC = new Administración.FrmCargo();
+            FrmC.usuario = usuario;
+            AbrirFormEnPanel(FrmC);
+
         }
 
         private void btnPersona_Click(object sender, EventArgs e)
@@ -577,6 +585,38 @@ namespace CapaPresentacion
 
         private void panelContenedor_Paint(object sender, PaintEventArgs e)
         {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            AbrirFormEnPanel(new Administración.FrmActualizaCredenciales());
+
+        }
+
+        private void btnroles_Click(object sender, EventArgs e)
+        {
+           
+            Administración.FrmRoles frmR = new Administración.FrmRoles();
+            frmR.usuario = usuario;
+            AbrirFormEnPanel(frmR);
+
+        }
+
+        private void btnConexiones_Click(object sender, EventArgs e)
+        {
+            Administración.Conexiones frmC = new Administración.Conexiones();
+            AbrirFormEnPanel(frmC);
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+
+            Administración.FrmHistorialEmpleado frmHE = new Administración.FrmHistorialEmpleado();
+            frmHE.usuario = usuario;
+            AbrirFormEnPanel(frmHE);
+
 
         }
     }

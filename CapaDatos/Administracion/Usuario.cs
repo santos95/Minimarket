@@ -63,6 +63,17 @@ namespace CapaDatos.Administracion
 
         }
 
+        //Actualizar credenciales de acceso
+        public string CambiarCredenciales(string usuario, string contraseña, string NUsuario, string NContraseña)
+        {
+            string rpta = "";
+
+            DataDataContext data = new DataDataContext();
+            data.spCambiarCredenciales(usuario, NUsuario, EncriptarContraseña(contraseña), EncriptarContraseña(NContraseña), ref rpta);
+
+            return rpta;
+        }
+
 
 
 

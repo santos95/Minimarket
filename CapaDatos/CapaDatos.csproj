@@ -41,8 +41,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Administracion\Cargo.cs" />
     <Compile Include="Administracion\Conexion.cs" />
+    <Compile Include="Administracion\Data.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Data.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\Empleado.cs" />
     <Compile Include="Administracion\Encrypt.cs" />
+    <Compile Include="Administracion\HistorialEmpleado.cs" />
+    <Compile Include="Administracion\Persona.cs" />
+    <Compile Include="Administracion\Rol.cs" />
     <Compile Include="Administracion\Usuario.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="conexion.cs" />
@@ -74,6 +84,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Administracion\Data.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Data.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
     <None Include="app.config" />
     <None Include="ClassDiagram1.cd" />
     <None Include="DataClasses1.dbml">
@@ -92,6 +107,11 @@
   <ItemGroup>
     <None Include="DataClasses1.dbml.layout">
       <DependentUpon>DataClasses1.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Administracion\Data.dbml.layout">
+      <DependentUpon>Data.dbml</DependentUpon>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

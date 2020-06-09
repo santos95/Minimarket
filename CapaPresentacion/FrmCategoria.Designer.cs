@@ -86,6 +86,7 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // errorIcono
             // 
@@ -477,6 +478,7 @@
             this.label1.Size = new System.Drawing.Size(140, 29);
             this.label1.TabIndex = 3;
             this.label1.Text = "Categorías";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // iconcerrar
             // 

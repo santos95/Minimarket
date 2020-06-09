@@ -9,7 +9,7 @@ namespace CapaDatos.Administracion
     class Conexion
     {
 
-        public static string Con = Properties.Settings.Default.Con;
+        public static string Cn = Properties.Settings.Default.Con;
 
     }
 }

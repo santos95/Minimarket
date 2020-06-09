@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="dbventasProyectTer" Class="DataDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=dbventasProyectTer;Integrated Security=True" SettingsObjectName="CapaDatos.Properties.Settings" SettingsPropertyName="Con" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.spCambiarCredenciales" Method="spCambiarCredenciales">
+    <Parameter Name="strUsuarioA" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="strUsuarioN" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="strContraseñaA" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="strContraseñaN" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="mensaje" Type="System.String" DbType="VarChar(80)" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

@@ -15,5 +15,12 @@ namespace CapaNegocio.Administracion
             return new Usuario().EncriptarContraseña(contraseña);
 
         }
+
+        public static string CambiarCredenciales(string usuario, string contraseña, string nUsuario, string nContraseña)
+        {
+
+            return new Usuario().CambiarCredenciales(usuario, contraseña, nUsuario, nContraseña);
+
+        }
     }
 }

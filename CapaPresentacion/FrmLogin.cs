@@ -23,6 +23,8 @@ namespace CapaPresentacion
         char estadousu;
 
         FrmMenuPrincipal frm = new FrmMenuPrincipal();
+        FrmSplashScreen sps = new FrmSplashScreen();
+
         int Count = 0;
 
 
@@ -73,7 +75,7 @@ namespace CapaPresentacion
 
                 Login();
 
-                if (count < 3)
+                if (Count < 3)
                 {
 
                     //formatear textboxs
@@ -235,26 +237,36 @@ namespace CapaPresentacion
                 if (data.RowCount != 0 && estadousu == 'B')
                 {
 
+                    if (MessageBox.Show("Su usuario ha sido bloqueado. Comuniquese con el administrador para obtener acceso", "Usuario Bloqueado", MessageBoxButtons.OK, MessageBoxIcon.Stop) == DialogResult.OK)
+                    {
+
+                        Application.Exit();
+
+                    }
+
+                    /*
                     MessageBox.Show("Su usuario ha sido bloqueado. Comuniquese con el administrador para obtener acceso", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.TxtPassword.Enabled = false;
                     this.TxtUsuario.Enabled = false;
                     this.BtnIngresar.Enabled = false;
-
+                    */
                 }
                 else if (data.RowCount != 0 && estadousu == 'C')
                 {
 
                     data.Visible = true;
 
-                    if (accesousuario == 1)
+                    if (accesousuario != 0 && accesousuario > 0)
                     {
 
+                        this.Hide();
+                        sps.ShowDialog();
                         frm.Show();
                         frm.usuario = nombreusu;
                         frm.btnUser.Text = nombreusu;
-                        this.Hide();
+                        //this.Hide();
 
-                    }
+                    }/*
                     else if (accesousuario == 2)
                     {
 
@@ -268,7 +280,7 @@ namespace CapaPresentacion
                         frm.Show();
                         this.Hide();
 
-                    }
+                    }*/
                     else
                     {
 
@@ -322,7 +334,7 @@ namespace CapaPresentacion
 
                     Login();
 
-                    if (count < 3)
+                    if (Count < 3)
                     {
 
                         this.TxtUsuario.Text = "";
@@ -352,7 +364,7 @@ namespace CapaPresentacion
                     Login();
 
 
-                    if (count < 3)
+                    if (Count < 3)
                     {
 
 

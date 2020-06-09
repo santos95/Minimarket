@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="dbventasProyectTer" Class="DataDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=dbventasProyectTer;Integrated Security=True" SettingsObjectName="CapaPresentacion.Properties.Settings" SettingsPropertyName="dbventasProyectTerConnectionString" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.spBuscarConexion" Method="spBuscarConexion">
+    <Parameter Name="usuario" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="filtro" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spBuscarConexionResult">
+      <Column Name="[ID Conexion]" Member="ID_Conexion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CodUsuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Usuario" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="[Estado Conexión]" Member="Estado_Conexión" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="Conectado" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Desconectado" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spMostrarHistorialAcceso" Method="spMostrarHistorialAcceso">
+    <ElementType Name="spMostrarHistorialAccesoResult">
+      <Column Name="[ID Conexion]" Member="ID_Conexion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CodUsuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Usuario" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="[Estado Conexión]" Member="Estado_Conexión" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="Conectado" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Desconectado" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spMostrarHistorialBloqueado" Method="spMostrarHistorialBloqueado">
+    <ElementType Name="spMostrarHistorialBloqueadoResult">
+      <Column Name="[ID Conexion]" Member="ID_Conexion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CodUsuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Usuario" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="[Estado Conexión]" Member="Estado_Conexión" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="Conectado" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Desconectado" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spMostrarHistorialConectado" Method="spMostrarHistorialConectado">
+    <ElementType Name="spMostrarHistorialConectadoResult">
+      <Column Name="[ID Conexion]" Member="ID_Conexion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CodUsuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Usuario" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="[Estado Conexión]" Member="Estado_Conexión" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="Conectado" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Desconectado" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spMostrarHistorialDesconectado" Method="spMostrarHistorialDesconectado">
+    <ElementType Name="spMostrarHistorialDesconectadoResult">
+      <Column Name="[ID Conexion]" Member="ID_Conexion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CodUsuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Usuario" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="[Estado Conexión]" Member="Estado_Conexión" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="Conectado" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Desconectado" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>

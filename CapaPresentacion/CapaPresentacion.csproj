@@ -46,6 +46,47 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Administración\Conexiones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administración\Conexiones.Designer.cs">
+      <DependentUpon>Conexiones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administración\Data.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Data.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Administración\FrmActualizaCredenciales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administración\FrmActualizaCredenciales.Designer.cs">
+      <DependentUpon>FrmActualizaCredenciales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administración\FrmCargo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administración\FrmCargo.Designer.cs">
+      <DependentUpon>FrmCargo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administración\FrmEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administración\FrmEmpleado.Designer.cs">
+      <DependentUpon>FrmEmpleado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administración\FrmHistorialEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administración\FrmHistorialEmpleado.Designer.cs">
+      <DependentUpon>FrmHistorialEmpleado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administración\FrmRoles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administración\FrmRoles.Designer.cs">
+      <DependentUpon>FrmRoles.cs</DependentUpon>
+    </Compile>
     <Compile Include="Class1.cs" />
     <Compile Include="DataClasses1.designer.cs">
       <AutoGen>True</AutoGen>
@@ -153,6 +194,12 @@
     <Compile Include="FrmProveedor_VisatPersona.Designer.cs">
       <DependentUpon>FrmProveedor_VisatPersona.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmSplashScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSplashScreen.Designer.cs">
+      <DependentUpon>FrmSplashScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmUnidad_Medida.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -236,9 +283,35 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Administración\Data.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Data.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
     <None Include="DataClasses1.dbml.layout">
       <DependentUpon>DataClasses1.dbml</DependentUpon>
     </None>
+    <EmbeddedResource Include="Administración\Conexiones.resx">
+      <DependentUpon>Conexiones.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Administración\Data.dbml.layout">
+      <DependentUpon>Data.dbml</DependentUpon>
+    </None>
+    <EmbeddedResource Include="Administración\FrmActualizaCredenciales.resx">
+      <DependentUpon>FrmActualizaCredenciales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administración\FrmCargo.resx">
+      <DependentUpon>FrmCargo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administración\FrmEmpleado.resx">
+      <DependentUpon>FrmEmpleado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administración\FrmHistorialEmpleado.resx">
+      <DependentUpon>FrmHistorialEmpleado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administración\FrmRoles.resx">
+      <DependentUpon>FrmRoles.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmAnulacionCompra.resx">
       <DependentUpon>FrmAnulacionCompra.cs</DependentUpon>
     </EmbeddedResource>
@@ -286,6 +359,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmProveedor_VisatPersona.resx">
       <DependentUpon>FrmProveedor_VisatPersona.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSplashScreen.resx">
+      <DependentUpon>FrmSplashScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmUnidad_Medida.resx">
       <DependentUpon>FrmUnidad_Medida.cs</DependentUpon>

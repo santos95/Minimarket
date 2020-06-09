@@ -42,6 +42,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Administracion\NCargo.cs" />
+    <Compile Include="Administracion\NEmpleado.cs" />
+    <Compile Include="Administracion\NHistorialEmpleado.cs" />
+    <Compile Include="Administracion\NRol.cs" />
     <Compile Include="Administracion\NUsuario.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="NAnularCompra.cs" />
