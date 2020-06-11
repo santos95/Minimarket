@@ -113,6 +113,17 @@ namespace CapaPresentacion.Administración
                 else if (rbtnDesconectados.Checked)
                     dataListado.DataSource = cnLinq.spMostrarHistorialDesconectado();
 
+            }
+
+        }
+
+        private void iconcerrar_Click(object sender, EventArgs e)
+        {
+
+            if (MessageBox.Show("¿Tiene datos sin guardar, desea salir?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+
+                this.Close();
 
             }
 

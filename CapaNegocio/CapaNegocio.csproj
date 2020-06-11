@@ -48,6 +48,7 @@
     <Compile Include="Administracion\NRol.cs" />
     <Compile Include="Administracion\NUsuario.cs" />
     <Compile Include="Class1.cs" />
+    <Compile Include="GestionNegocio\NTasaCambio.cs" />
     <Compile Include="NAnularCompra.cs" />
     <Compile Include="Ncategoria.cs" />
     <Compile Include="Ncliente.cs" />

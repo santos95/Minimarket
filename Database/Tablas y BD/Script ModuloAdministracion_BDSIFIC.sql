@@ -124,3 +124,17 @@ CREATE TABLE tblControlCredenciales
 GO
 
 
+--usar
+CREATE TABLE tblTasaCambio
+(
+	
+	IdTasaCambio		INT PRIMARY KEY IDENTITY(1,1),
+	dtFechaVigencia		date NOT NULL,
+	flValorCambio		decimal NOT NULL,
+	dtFechaRegistro		DATETIME DEFAULT GETDATE()
+
+)
+GO
+
+select * from tblTasaCambio
+

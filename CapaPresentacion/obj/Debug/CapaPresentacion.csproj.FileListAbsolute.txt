@@ -250,3 +250,5 @@ C:\Users\Santos Ortiz\Documents\Aqui jorge\iconos aqui\SistemaChombo\CapaPresent
 C:\Users\Santos Ortiz\Documents\Aqui jorge\iconos aqui\SistemaChombo\CapaPresentacion\obj\Debug\CapaPresentacion.Administración.FrmEmpleado.resources
 C:\Users\Santos Ortiz\Documents\Aqui jorge\iconos aqui\SistemaChombo\CapaPresentacion\obj\Debug\CapaPresentacion.Administración.FrmHistorialEmpleado.resources
 C:\Users\Santos Ortiz\Documents\Aqui jorge\iconos aqui\SistemaChombo\CapaPresentacion\obj\Debug\CapaPresentacion.FrmSplashScreen.resources
+C:\Users\Santos Ortiz\Documents\Aqui jorge\iconos aqui\SistemaChombo\CapaPresentacion\obj\Debug\CapaPresentacion.Administración.FrmUsuario.resources
+C:\Users\Santos Ortiz\Documents\Aqui jorge\iconos aqui\SistemaChombo\CapaPresentacion\obj\Debug\CapaPresentacion.GestionNegocio.FrmTasaCambio.resources

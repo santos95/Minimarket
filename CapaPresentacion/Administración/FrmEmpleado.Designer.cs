@@ -108,7 +108,7 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold);
-            this.tabControl1.Location = new System.Drawing.Point(5, 70);
+            this.tabControl1.Location = new System.Drawing.Point(5, 85);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1100, 497);
@@ -684,7 +684,7 @@
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(153, 42);
             this.btnSalir.TabIndex = 18;
-            this.btnSalir.Text = "    Cerrar";
+            this.btnSalir.Text = "    &Cerrar";
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
@@ -723,7 +723,7 @@
             this.btnDeshacer.Name = "btnDeshacer";
             this.btnDeshacer.Size = new System.Drawing.Size(153, 42);
             this.btnDeshacer.TabIndex = 14;
-            this.btnDeshacer.Text = "     Deshacer";
+            this.btnDeshacer.Text = "     &Deshacer";
             this.btnDeshacer.UseVisualStyleBackColor = false;
             this.btnDeshacer.Click += new System.EventHandler(this.btnDeshacer_Click);
             // 
@@ -740,7 +740,7 @@
             this.btnEditar.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btnEditar.Size = new System.Drawing.Size(153, 42);
             this.btnEditar.TabIndex = 13;
-            this.btnEditar.Text = "    Editar";
+            this.btnEditar.Text = "    &Editar";
             this.btnEditar.UseVisualStyleBackColor = false;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
@@ -756,7 +756,7 @@
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(153, 42);
             this.btnGuardar.TabIndex = 12;
-            this.btnGuardar.Text = "    Guardar";
+            this.btnGuardar.Text = "    &Guardar";
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
@@ -772,7 +772,7 @@
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(153, 42);
             this.btnNuevo.TabIndex = 11;
-            this.btnNuevo.Text = "    Nuevo";
+            this.btnNuevo.Text = "    &Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = false;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
@@ -826,7 +826,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(1110, 555);
+            this.ClientSize = new System.Drawing.Size(1110, 580);
             this.Controls.Add(this.iconcerrar);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label20);

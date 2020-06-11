@@ -54,8 +54,129 @@ namespace CapaPresentacion
         private void FrmMenuPrincipal_Load(object sender, EventArgs e)
         {
 
-         //   btnUser.Text = usuario;
-            
+            //   btnUser.Text = usuario;
+            //Permisos
+            //administrador
+            if (Acceso == 1)
+            {
+
+                //Módulo Caja
+                btnMcaja.Enabled = false;
+
+                //Módulo Compras
+                btnMcompras.Enabled = false;
+
+                //Módulo de venta
+                btnMventas.Enabled = false;
+
+                //Módulo gestión negocio
+                btnMGestion.Enabled = true;
+                btnproductos.Enabled = false;
+                btnProveedor.Enabled = false;
+                btnContacto.Enabled = false;
+                btnMarca.Enabled = false;
+                btnUnidMed.Enabled = false;
+                btnPresentacion.Enabled = false;
+                btnCategoria.Enabled = false;
+                btnTasaCambio.Enabled = true;
+
+                //Administración
+                btnMadmin.Enabled = true;
+
+            } //cajero
+            else if (Acceso == 2)
+            {
+
+                //Módulo Caja
+                btnMcaja.Enabled = true;
+
+
+                //Módulo Compras
+                btnMcompras.Enabled = false;
+
+                //Módulo de venta
+                btnMventas.Enabled = true;
+                btnanularventa.Enabled = false;
+
+                //Módulo gestión negocio
+                btnMGestion.Enabled = true;
+                btnproductos.Enabled = true;
+                btnProveedor.Enabled = false;
+                btnContacto.Enabled = false;
+                btnMarca.Enabled = false;
+                btnUnidMed.Enabled = false;
+                btnPresentacion.Enabled = false;
+                btnCategoria.Enabled = false;
+                btnTasaCambio.Enabled = true;
+
+                //Administración
+                btnMadmin.Enabled = false;
+
+            }//gerente
+            else if (Acceso == 3)
+            {
+
+                //Módulo Caja
+                btnMcaja.Enabled = true;
+
+                //Módulo Compras
+                btnMcompras.Enabled = true;
+
+                //Módulo de venta
+                btnMventas.Enabled = true;
+
+                //Módulo gestión negocio
+                btnMGestion.Enabled = true;
+
+                //Administración
+                btnMadmin.Enabled = true;
+                btnroles.Enabled = false;
+                btnusuario.Enabled = false;
+                btnConexiones.Enabled = false;
+
+            }//bodeguero
+            else if (Acceso == 4)
+            {
+                //caja
+                btnMcaja.Enabled = false;
+
+                //Ventas
+                btnMventas.Enabled = false;
+
+                //Compras
+                btnMcompras.Enabled = true;
+
+                //Gestion negocio
+                btnMGestion.Enabled = true;
+                btnTasaCambio.Enabled = false;
+
+                //Administracioon
+                btnMadmin.Enabled = false;
+
+            }//Supervisor venta
+            else if (Acceso == 5)
+            {
+
+                //caja
+                btnMcaja.Enabled = true;
+
+                //venta
+                btnMventas.Enabled = true;
+
+                //gestion negocio
+                btnMGestion.Enabled = true;
+                btnProveedor.Enabled = false;
+                btnContacto.Enabled = false;
+
+                //Compras
+                btnMcompras.Enabled = false;
+
+                //Administracion
+                btnMadmin.Enabled = false;
+                
+
+            }
+
         }
         private void colorClaro()
         {
@@ -610,12 +731,62 @@ namespace CapaPresentacion
             AbrirFormEnPanel(frmC);
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+           
+
+        private void btnusuario_Click(object sender, EventArgs e)
+        {
+
+            Administración.FrmUsuario frmU = new Administración.FrmUsuario();
+            frmU.usuario = usuario;
+            AbrirFormEnPanel(frmU);
+
+
+        }
+
+        private void pnladmin_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnusuario_Click_1(object sender, EventArgs e)
+        {
+
+            Administración.FrmUsuario frmU = new Administración.FrmUsuario();
+            frmU.usuario = usuario;
+            AbrirFormEnPanel(frmU);
+
+        }
+
+        private void btnConexiones_Click_1(object sender, EventArgs e)
+        {
+
+            Administración.Conexiones frmC = new Administración.Conexiones();
+           AbrirFormEnPanel(frmC);
+            
+
+        }
+
+        private void btnHistorialEmpleado_Click(object sender, EventArgs e)
         {
 
             Administración.FrmHistorialEmpleado frmHE = new Administración.FrmHistorialEmpleado();
             frmHE.usuario = usuario;
             AbrirFormEnPanel(frmHE);
+
+        }
+
+        private void btnroles_Click_1(object sender, EventArgs e)
+        {
+            Administración.FrmRoles frmR = new Administración.FrmRoles();
+            frmR.usuario = usuario;
+            AbrirFormEnPanel(frmR);
+        }
+
+        private void btnTasaCambio_Click(object sender, EventArgs e)
+        {
+
+            GestionNegocio.FrmTasaCambio frmT = new GestionNegocio.FrmTasaCambio();
+            AbrirFormEnPanel(frmT);
 
 
         }

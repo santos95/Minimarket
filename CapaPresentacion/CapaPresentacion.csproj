@@ -87,6 +87,12 @@
     <Compile Include="Administración\FrmRoles.Designer.cs">
       <DependentUpon>FrmRoles.cs</DependentUpon>
     </Compile>
+    <Compile Include="Administración\FrmUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administración\FrmUsuario.Designer.cs">
+      <DependentUpon>FrmUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Class1.cs" />
     <Compile Include="DataClasses1.designer.cs">
       <AutoGen>True</AutoGen>
@@ -230,6 +236,12 @@
     <Compile Include="FrmVistasCompra_Anular.Designer.cs">
       <DependentUpon>FrmVistasCompra_Anular.cs</DependentUpon>
     </Compile>
+    <Compile Include="GestionNegocio\FrmTasaCambio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionNegocio\FrmTasaCambio.Designer.cs">
+      <DependentUpon>FrmTasaCambio.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -312,6 +324,9 @@
     <EmbeddedResource Include="Administración\FrmRoles.resx">
       <DependentUpon>FrmRoles.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Administración\FrmUsuario.resx">
+      <DependentUpon>FrmUsuario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmAnulacionCompra.resx">
       <DependentUpon>FrmAnulacionCompra.cs</DependentUpon>
     </EmbeddedResource>
@@ -381,6 +396,9 @@
     <None Include="Login.dbml.layout">
       <DependentUpon>Login.dbml</DependentUpon>
     </None>
+    <EmbeddedResource Include="GestionNegocio\FrmTasaCambio.resx">
+      <DependentUpon>FrmTasaCambio.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
