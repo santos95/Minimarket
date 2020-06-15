@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Diagnostics;//manda a llmar los recursos del process.stark
-using System.Data;
+
 
 namespace CapaPresentacion
 {
@@ -20,9 +20,10 @@ namespace CapaPresentacion
         public string Nombre = "";
         public int Acceso;
         public string usuario;
-        public double tasa;
-
         LoginDataContext conexionLinq = new LoginDataContext();
+        public float tasa { set; get; }
+
+        
 
 
 
@@ -36,7 +37,11 @@ namespace CapaPresentacion
             this.ttMensaje.SetToolTip(this.btnMcaja, "Despleglar modulos de caja");
             this.ttMensaje.SetToolTip(this.btnaperturacaja, "Abrir caja");
 
-            
+            //
+           
+           
+            this.lblValorTasa.Text = "C$" + tasa;
+
         }
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -183,7 +188,7 @@ namespace CapaPresentacion
 
             }
 
-            lblValorTasa.Text = "C$" + tasa.ToString();
+          
 
 
 
@@ -208,7 +213,7 @@ namespace CapaPresentacion
             btnCredenciales.BackColor = Color.FromName("Control");
             btnCredenciales.ForeColor = Color.FromName("ControlText");
             btnUser.BackColor = Color.FromName("Control");
-
+            btnUser.ForeColor = Color.FromName("ControlText");
             /* BarraTitulo.BackColor = Color.FromArgb(52, 73, 94);
              MenuVertical.BackColor = Color.FromArgb(255, 255, 255);
              btnMenu.BackColor = Color.FromArgb(93, 109, 126);
@@ -338,6 +343,7 @@ namespace CapaPresentacion
             btnCerrarSesion.BackColor = Color.FromArgb(28, 40, 51);
             btnCerrarSesion.ForeColor = Color.FromArgb(255, 255, 255);
             btnUser.BackColor = Color.FromArgb(28, 40, 51);
+            btnUser.ForeColor = Color.FromName("Control");
             btnCredenciales.BackColor = Color.FromArgb(28, 40, 51);
             btnCredenciales.ForeColor = Color.FromArgb(255, 255, 255);
 

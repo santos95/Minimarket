@@ -33,11 +33,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.lblTotal = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.rbtnInactivo = new System.Windows.Forms.RadioButton();
             this.rbtnActivo = new System.Windows.Forms.RadioButton();
             this.rbtnTodos = new System.Windows.Forms.RadioButton();
             this.tblListado = new System.Windows.Forms.DataGridView();
@@ -83,8 +82,8 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
-            this.tabPage1.Controls.Add(this.button1);
-            this.tabPage1.Controls.Add(this.dateTimePicker1);
+            this.tabPage1.Controls.Add(this.btnBuscar);
+            this.tabPage1.Controls.Add(this.dtpFecha);
             this.tabPage1.Controls.Add(this.lblTotal);
             this.tabPage1.Controls.Add(this.groupBox1);
             this.tabPage1.Controls.Add(this.tblListado);
@@ -96,60 +95,52 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Listado";
             // 
-            // button1
+            // btnBuscar
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.Control;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(325, 60);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(158, 40);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "&Buscar";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnBuscar.BackColor = System.Drawing.SystemColors.Control;
+            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscar.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btnBuscar.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
+            this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscar.Location = new System.Drawing.Point(325, 60);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(158, 40);
+            this.btnBuscar.TabIndex = 8;
+            this.btnBuscar.Text = "&Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.button1_Click);
             // 
-            // dateTimePicker1
+            // dtpFecha
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(110, 65);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 27);
-            this.dateTimePicker1.TabIndex = 7;
+            this.dtpFecha.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold);
+            this.dtpFecha.Location = new System.Drawing.Point(110, 65);
+            this.dtpFecha.Name = "dtpFecha";
+            this.dtpFecha.Size = new System.Drawing.Size(200, 28);
+            this.dtpFecha.TabIndex = 7;
             // 
             // lblTotal
             // 
             this.lblTotal.AutoSize = true;
+            this.lblTotal.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold);
             this.lblTotal.ForeColor = System.Drawing.SystemColors.Control;
             this.lblTotal.Location = new System.Drawing.Point(30, 110);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(49, 21);
+            this.lblTotal.Size = new System.Drawing.Size(52, 22);
             this.lblTotal.TabIndex = 6;
             this.lblTotal.Text = "Total";
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.rbtnInactivo);
             this.groupBox1.Controls.Add(this.rbtnActivo);
             this.groupBox1.Controls.Add(this.rbtnTodos);
             this.groupBox1.ForeColor = System.Drawing.SystemColors.Control;
             this.groupBox1.Location = new System.Drawing.Point(500, 15);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(200, 120);
+            this.groupBox1.Size = new System.Drawing.Size(200, 103);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtro por Estado";
-            // 
-            // rbtnInactivo
-            // 
-            this.rbtnInactivo.AutoSize = true;
-            this.rbtnInactivo.Location = new System.Drawing.Point(20, 90);
-            this.rbtnInactivo.Name = "rbtnInactivo";
-            this.rbtnInactivo.Size = new System.Drawing.Size(100, 25);
-            this.rbtnInactivo.TabIndex = 6;
-            this.rbtnInactivo.TabStop = true;
-            this.rbtnInactivo.Text = "Inactivos";
-            this.rbtnInactivo.UseVisualStyleBackColor = true;
             // 
             // rbtnActivo
             // 
@@ -161,6 +152,7 @@
             this.rbtnActivo.TabStop = true;
             this.rbtnActivo.Text = "Activos";
             this.rbtnActivo.UseVisualStyleBackColor = true;
+            this.rbtnActivo.CheckedChanged += new System.EventHandler(this.rbtnActivo_CheckedChanged);
             // 
             // rbtnTodos
             // 
@@ -172,10 +164,12 @@
             this.rbtnTodos.TabStop = true;
             this.rbtnTodos.Text = "Todos";
             this.rbtnTodos.UseVisualStyleBackColor = true;
+            this.rbtnTodos.CheckedChanged += new System.EventHandler(this.rbtnTodos_CheckedChanged);
             // 
             // tblListado
             // 
             this.tblListado.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.tblListado.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 12F);
@@ -198,15 +192,16 @@
             this.tblListado.RowHeadersWidth = 80;
             this.tblListado.Size = new System.Drawing.Size(750, 266);
             this.tblListado.TabIndex = 2;
+            this.tblListado.DoubleClick += new System.EventHandler(this.tblListado_DoubleClick);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.label2.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(27, 65);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 21);
+            this.label2.Size = new System.Drawing.Size(60, 22);
             this.label2.TabIndex = 0;
             this.label2.Text = "Fecha:";
             // 
@@ -439,10 +434,9 @@
 
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtpFecha;
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton rbtnInactivo;
         private System.Windows.Forms.RadioButton rbtnActivo;
         private System.Windows.Forms.RadioButton rbtnTodos;
         private System.Windows.Forms.DataGridView tblListado;
@@ -458,7 +452,7 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Label lblTotalImportar;
         private System.Windows.Forms.PictureBox iconcerrar;

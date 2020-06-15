@@ -32,5 +32,11 @@ namespace CapaNegocio.GestionNegocio
 
         }
 
+        public static float EstablecerTasa()
+        {
+
+            return new TasaCambio().EstablecerTasa();
+
+        }
     }
 }

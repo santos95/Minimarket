@@ -199,6 +199,18 @@ namespace CapaDatos.GestionNegocio
             return rpta;
         }
 
+        public float EstablecerTasa()
+        {
+
+            float tasa = 0;
+
+            Administracion.DataDataContext conLinq = new Administracion.DataDataContext();
+
+            tasa = EstablecerTasa();
+
+            return tasa;
+
+        }
 
     }
 }

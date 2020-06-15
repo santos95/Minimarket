@@ -18,7 +18,7 @@ namespace CapaPresentacion
         public int accesousuario;
         string nombreusu;
         string passuser;
-        double vTasa;
+        float vTasa;
         int codigousu;
         int count = 0;
         char estadousu;
@@ -231,8 +231,8 @@ namespace CapaPresentacion
                 passuser = data[2, 0].Value.ToString();
 
                 //tasa
-                tasa.DataSource = conexionLinq.spEstablecerTasa();
-                vTasa = double.Parse(tasa[0, 0].Value.ToString());
+                tasa.DataSource = conexionLinq.spTasaActiva();
+                //vTasa = (float) Convert.ToDecimal(tasa[2, 0].Value.ToString());
 
                 estado.DataSource = conexionLinq.estadoconexion(codigousu);
                 estadousu = char.Parse(estado[2, 0].Value.ToString());
@@ -269,8 +269,8 @@ namespace CapaPresentacion
                         frm.Show();
                         frm.usuario = nombreusu;
                         frm.btnUser.Text = nombreusu;
-                        frm.tasa = vTasa;
-                        
+                        frm.tasa = (float)Convert.ToDecimal(tasa[2, 0].Value.ToString());
+
                         //this.Hide();
 
                     }/*

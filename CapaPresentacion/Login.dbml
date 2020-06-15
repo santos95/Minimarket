@@ -34,4 +34,12 @@
       <Column Name="flValorCambio" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
+  <Function Name="dbo.spTasaActiva" Method="spTasaActiva">
+    <ElementType Name="spTasaActivaResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="[Fecha de Vigencia]" Member="Fecha_de_Vigencia" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="[Valor C$ por $]" Member="Valor_C__por__" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Registrado" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

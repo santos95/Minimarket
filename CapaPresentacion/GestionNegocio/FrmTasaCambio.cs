@@ -17,7 +17,7 @@ namespace CapaPresentacion.GestionNegocio
 
         private string ruta = "";
         private bool importar = false;
-   
+        Administración.DataDataContext conLinq = new Administración.DataDataContext();
        
      
 
@@ -198,6 +198,8 @@ namespace CapaPresentacion.GestionNegocio
             Botones();
             Mostrar();
 
+            rbtnTodos.Select();
+
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -242,6 +244,35 @@ namespace CapaPresentacion.GestionNegocio
             {
                 Close();
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //Click en buscar
+            tblListado.DataSource = conLinq.spBuscarTasa(dtpFecha.Value);
+            TotalRegistros();
+
+        }
+
+        private void rbtnTodos_CheckedChanged(object sender, EventArgs e)
+        {
+
+            Mostrar();
+
+        }
+
+        private void rbtnActivo_CheckedChanged(object sender, EventArgs e)
+        {
+
+            tblListado.DataSource = conLinq.spTasaActiva();
+            TotalRegistros();
+        }
+
+        private void tblListado_DoubleClick(object sender, EventArgs e)
+        {
+
+           
+
         }
     }
 }

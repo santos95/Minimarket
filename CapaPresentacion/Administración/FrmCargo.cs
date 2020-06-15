@@ -454,6 +454,20 @@ namespace CapaPresentacion.Administración
             }
 
         }
+
+        private void iconcerrar_Click(object sender, EventArgs e)
+        {
+            if (txtNombre.Text != "" || txtDescripcion.Text != "")
+            {
+                if (MessageBox.Show("¿Tiene datos sin guardar, desea salir?", "Advertencia",
+              MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                    this.Close();
+            }
+            else
+            {
+                Close();
+            }
+        }
     }
 
 }

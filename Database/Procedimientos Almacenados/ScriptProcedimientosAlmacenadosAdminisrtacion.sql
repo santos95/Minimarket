@@ -1109,6 +1109,25 @@ BEGIN
 END
 GO
 
+CREATE PROC spBuscarTasa
+@fecha date
+AS
+BEGIN
+
+		SELECT IdTasaCambio AS 'ID', dtFechaVigencia AS 'Fecha de Vigencia', flValorCambio AS 'Valor C$ por $',  dtFechaRegistro AS 'Registrado' FROM tblTasaCambio WHERE dtFechaVigencia = @fecha
+
+END
+GO
+
+CREATE PROC spTasaActiva
+AS
+BEGIN
+
+		SELECT IdTasaCambio AS 'ID', dtFechaVigencia AS 'Fecha de Vigencia', flValorCambio AS 'Valor C$ por $',  dtFechaRegistro AS 'Registrado' FROM tblTasaCambio WHERE dtFechaVigencia = CONVERT(DATE, GETDATE())
+
+END
+GO
+
 CREATE PROC spEstablecerTasa
 AS
 BEGIN

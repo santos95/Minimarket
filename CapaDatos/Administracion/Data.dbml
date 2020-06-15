@@ -8,4 +8,9 @@
     <Parameter Name="mensaje" Type="System.String" DbType="VarChar(80)" Direction="InOut" />
     <Return Type="System.Int32" />
   </Function>
+  <Function Name="dbo.spEstablecerTasa" Method="spEstablecerTasa">
+    <ElementType Name="spEstablecerTasaResult">
+      <Column Name="flValorCambio" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
 </Database>

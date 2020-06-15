@@ -96,6 +96,28 @@ namespace CapaPresentacion.Administración
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<spMostrarHistorialDesconectadoResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.spBuscarTasa")]
+		public ISingleResult<spBuscarTasaResult> spBuscarTasa([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecha)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fecha);
+			return ((ISingleResult<spBuscarTasaResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.spTasaActiva")]
+		public ISingleResult<spTasaActivaResult> spTasaActiva()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<spTasaActivaResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.spDefinirTasa")]
+		public int spDefinirTasa([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Float")] ref System.Nullable<double> tasa)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), tasa);
+			tasa = ((System.Nullable<double>)(result.GetParameterValue(0)));
+			return ((int)(result.ReturnValue));
+		}
 	}
 	
 	public partial class spBuscarConexionResult
@@ -673,6 +695,166 @@ namespace CapaPresentacion.Administración
 				if ((this._Desconectado != value))
 				{
 					this._Desconectado = value;
+				}
+			}
+		}
+	}
+	
+	public partial class spBuscarTasaResult
+	{
+		
+		private int _ID;
+		
+		private System.DateTime _Fecha_de_Vigencia;
+		
+		private double _Valor_C__por__;
+		
+		private System.Nullable<System.DateTime> _Registrado;
+		
+		public spBuscarTasaResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", DbType="Int NOT NULL")]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this._ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Fecha de Vigencia]", Storage="_Fecha_de_Vigencia", DbType="Date NOT NULL")]
+		public System.DateTime Fecha_de_Vigencia
+		{
+			get
+			{
+				return this._Fecha_de_Vigencia;
+			}
+			set
+			{
+				if ((this._Fecha_de_Vigencia != value))
+				{
+					this._Fecha_de_Vigencia = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Valor C$ por $]", Storage="_Valor_C__por__", DbType="Float NOT NULL")]
+		public double Valor_C__por__
+		{
+			get
+			{
+				return this._Valor_C__por__;
+			}
+			set
+			{
+				if ((this._Valor_C__por__ != value))
+				{
+					this._Valor_C__por__ = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Registrado", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Registrado
+		{
+			get
+			{
+				return this._Registrado;
+			}
+			set
+			{
+				if ((this._Registrado != value))
+				{
+					this._Registrado = value;
+				}
+			}
+		}
+	}
+	
+	public partial class spTasaActivaResult
+	{
+		
+		private int _ID;
+		
+		private System.DateTime _Fecha_de_Vigencia;
+		
+		private double _Valor_C__por__;
+		
+		private System.Nullable<System.DateTime> _Registrado;
+		
+		public spTasaActivaResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", DbType="Int NOT NULL")]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this._ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Fecha de Vigencia]", Storage="_Fecha_de_Vigencia", DbType="Date NOT NULL")]
+		public System.DateTime Fecha_de_Vigencia
+		{
+			get
+			{
+				return this._Fecha_de_Vigencia;
+			}
+			set
+			{
+				if ((this._Fecha_de_Vigencia != value))
+				{
+					this._Fecha_de_Vigencia = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Valor C$ por $]", Storage="_Valor_C__por__", DbType="Float NOT NULL")]
+		public double Valor_C__por__
+		{
+			get
+			{
+				return this._Valor_C__por__;
+			}
+			set
+			{
+				if ((this._Valor_C__por__ != value))
+				{
+					this._Valor_C__por__ = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Registrado", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Registrado
+		{
+			get
+			{
+				return this._Registrado;
+			}
+			set
+			{
+				if ((this._Registrado != value))
+				{
+					this._Registrado = value;
 				}
 			}
 		}

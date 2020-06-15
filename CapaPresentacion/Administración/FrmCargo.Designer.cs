@@ -563,6 +563,7 @@
             this.iconcerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.iconcerrar.TabIndex = 20;
             this.iconcerrar.TabStop = false;
+            this.iconcerrar.Click += new System.EventHandler(this.iconcerrar_Click);
             // 
             // error
             // 

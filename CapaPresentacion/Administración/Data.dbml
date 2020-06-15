@@ -52,4 +52,25 @@
       <Column Name="Desconectado" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="dbo.spBuscarTasa" Method="spBuscarTasa">
+    <Parameter Name="fecha" Type="System.DateTime" DbType="Date" />
+    <ElementType Name="spBuscarTasaResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="[Fecha de Vigencia]" Member="Fecha_de_Vigencia" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="[Valor C$ por $]" Member="Valor_C__por__" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Registrado" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spTasaActiva" Method="spTasaActiva">
+    <ElementType Name="spTasaActivaResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="[Fecha de Vigencia]" Member="Fecha_de_Vigencia" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="[Valor C$ por $]" Member="Valor_C__por__" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Registrado" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spDefinirTasa" Method="spDefinirTasa">
+    <Parameter Name="tasa" Type="System.Double" DbType="Float" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
 </Database>

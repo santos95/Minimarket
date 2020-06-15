@@ -69,6 +69,39 @@ namespace CapaDatos.Administracion
 			mensaje = ((string)(result.GetParameterValue(4)));
 			return ((int)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.spEstablecerTasa")]
+		public ISingleResult<spEstablecerTasaResult> spEstablecerTasa()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<spEstablecerTasaResult>)(result.ReturnValue));
+		}
+	}
+	
+	public partial class spEstablecerTasaResult
+	{
+		
+		private double _flValorCambio;
+		
+		public spEstablecerTasaResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_flValorCambio", DbType="Float NOT NULL")]
+		public double flValorCambio
+		{
+			get
+			{
+				return this._flValorCambio;
+			}
+			set
+			{
+				if ((this._flValorCambio != value))
+				{
+					this._flValorCambio = value;
+				}
+			}
+		}
 	}
 }
 #pragma warning restore 1591

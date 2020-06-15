@@ -96,6 +96,13 @@ namespace CapaPresentacion
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<spEstablecerTasaResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.spTasaActiva")]
+		public ISingleResult<spTasaActivaResult> spTasaActiva()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<spTasaActivaResult>)(result.ReturnValue));
+		}
 	}
 	
 	public partial class accesologinResult
@@ -297,6 +304,86 @@ namespace CapaPresentacion
 				if ((this._flValorCambio != value))
 				{
 					this._flValorCambio = value;
+				}
+			}
+		}
+	}
+	
+	public partial class spTasaActivaResult
+	{
+		
+		private int _ID;
+		
+		private System.DateTime _Fecha_de_Vigencia;
+		
+		private double _Valor_C__por__;
+		
+		private System.Nullable<System.DateTime> _Registrado;
+		
+		public spTasaActivaResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", DbType="Int NOT NULL")]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this._ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Fecha de Vigencia]", Storage="_Fecha_de_Vigencia", DbType="Date NOT NULL")]
+		public System.DateTime Fecha_de_Vigencia
+		{
+			get
+			{
+				return this._Fecha_de_Vigencia;
+			}
+			set
+			{
+				if ((this._Fecha_de_Vigencia != value))
+				{
+					this._Fecha_de_Vigencia = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Valor C$ por $]", Storage="_Valor_C__por__", DbType="Float NOT NULL")]
+		public double Valor_C__por__
+		{
+			get
+			{
+				return this._Valor_C__por__;
+			}
+			set
+			{
+				if ((this._Valor_C__por__ != value))
+				{
+					this._Valor_C__por__ = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Registrado", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Registrado
+		{
+			get
+			{
+				return this._Registrado;
+			}
+			set
+			{
+				if ((this._Registrado != value))
+				{
+					this._Registrado = value;
 				}
 			}
 		}
