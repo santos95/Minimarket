@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Diagnostics;//manda a llmar los recursos del process.stark
+using System.Data;
 
 namespace CapaPresentacion
 {
@@ -19,8 +20,11 @@ namespace CapaPresentacion
         public string Nombre = "";
         public int Acceso;
         public string usuario;
+        public double tasa;
 
         LoginDataContext conexionLinq = new LoginDataContext();
+
+
 
         public FrmMenuPrincipal()
         {
@@ -31,6 +35,8 @@ namespace CapaPresentacion
             //this.ttMensaje.SetToolTip(this.pictureBox1, "Cerrar sesion ");
             this.ttMensaje.SetToolTip(this.btnMcaja, "Despleglar modulos de caja");
             this.ttMensaje.SetToolTip(this.btnaperturacaja, "Abrir caja");
+
+            
         }
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -177,21 +183,39 @@ namespace CapaPresentacion
 
             }
 
+            lblValorTasa.Text = "C$" + tasa.ToString();
+
+
+
+
+
         }
         private void colorClaro()
         {
 
             //principal
-            panel1.BackColor = Color.FromArgb(52, 73, 94);
+            /*panel1.BackColor = Color.FromArgb(52, 73, 94);
             panel2.BackColor = Color.FromArgb(52, 73, 94);
             pnlUser.BackColor = Color.FromArgb(52, 73, 94);
-            btnCerrarSesion.BackColor = Color.FromArgb(93, 109, 126); btnCerrarSesion.ForeColor = Color.FromArgb(0, 0, 0);
+            btnCerrarSesion.BackColor = Color.FromArgb(93, 109, 126); 
+            btnCerrarSesion.ForeColor = Color.FromArgb(0, 0, 0);
+            */
+            panel1.BackColor = Color.FromName("Control");
+            panel2.BackColor = Color.FromName("Control");
+            pnlUser.BackColor = Color.FromName("Control");
+            btnCerrarSesion.BackColor = Color.FromName("Control");
+            btnCerrarSesion.ForeColor = Color.FromName("ControlText");
+            btnCredenciales.BackColor = Color.FromName("Control");
+            btnCredenciales.ForeColor = Color.FromName("ControlText");
+            btnUser.BackColor = Color.FromName("Control");
 
-
-            BarraTitulo.BackColor = Color.FromArgb(52, 73, 94);
-            MenuVertical.BackColor = Color.FromArgb(255, 255, 255);
+            /* BarraTitulo.BackColor = Color.FromArgb(52, 73, 94);
+             MenuVertical.BackColor = Color.FromArgb(255, 255, 255);
+             btnMenu.BackColor = Color.FromArgb(93, 109, 126);
+             */
+            BarraTitulo.BackColor = Color.FromName("Control");
+            MenuVertical.BackColor = Color.FromName("Control");
             btnMenu.BackColor = Color.FromArgb(93, 109, 126);
-
 
             //paneles
             pnlcaja.BackColor = Color.FromArgb(229, 232, 232);
@@ -204,50 +228,94 @@ namespace CapaPresentacion
             //Btn modulos
             label1.ForeColor = Color.FromArgb(0, 0, 0);
             label2.ForeColor = Color.FromArgb(0, 0, 0);
-            btnMcompras.BackColor = Color.FromArgb(52, 73, 94); btnMcompras.ForeColor = Color.FromArgb(0, 0, 0);
-            btnMcaja.BackColor = Color.FromArgb(52, 73, 94); btnMcaja.ForeColor = Color.FromArgb(0, 0, 0);
-            btnMadmin.BackColor = Color.FromArgb(52, 73, 94); btnMadmin.ForeColor = Color.FromArgb(0, 0, 0);
-            btnMGestion.BackColor = Color.FromArgb(52, 73, 94); btnMGestion.ForeColor = Color.FromArgb(0, 0, 0);
-            btnMventas.BackColor = Color.FromArgb(52, 73, 94); btnMventas.ForeColor = Color.FromArgb(0, 0, 0);
+            btnMcompras.BackColor = Color.FromName("Control");
+            btnMcompras.ForeColor = Color.FromArgb(0, 0, 0);
+            btnMcaja.BackColor = Color.FromName("Control");
+            btnMcaja.ForeColor = Color.FromArgb(0, 0, 0);
+            btnMadmin.BackColor = Color.FromName("Control");
+            btnMadmin.ForeColor = Color.FromArgb(0, 0, 0);
+            btnMGestion.BackColor = Color.FromName("Control");
+            btnMGestion.ForeColor = Color.FromArgb(0, 0, 0);
+            btnMventas.BackColor = Color.FromName("Control");
+            btnMventas.ForeColor = Color.FromArgb(0, 0, 0);
 
             //Modulo caja
-            btnaperturacaja.BackColor = Color.FromArgb(93, 109, 126); btnaperturacaja.ForeColor = Color.FromArgb(0, 0, 0);
-            btncierracaja.BackColor = Color.FromArgb(93, 109, 126); btncierracaja.ForeColor = Color.FromArgb(0, 0, 0);
-            btningresos.BackColor = Color.FromArgb(93, 109, 126); btningresos.ForeColor = Color.FromArgb(0, 0, 0);
-            btnegresos.BackColor = Color.FromArgb(93, 109, 126); btnegresos.ForeColor = Color.FromArgb(0, 0, 0);
-            btnmovimientocaja.BackColor = Color.FromArgb(93, 109, 126); btnmovimientocaja.ForeColor = Color.FromArgb(0, 0, 0);
+            btnaperturacaja.BackColor = Color.FromName("Control");
+            btnaperturacaja.ForeColor = Color.FromArgb(0, 0, 0);
+            btncierracaja.BackColor = Color.FromName("Control");
+            btncierracaja.ForeColor = Color.FromArgb(0, 0, 0);
+            btningresos.BackColor = Color.FromName("Control");
+            btningresos.ForeColor = Color.FromArgb(0, 0, 0);
+            btnegresos.BackColor = Color.FromName("Control");
+            btnegresos.ForeColor = Color.FromArgb(0, 0, 0);
+            btnmovimientocaja.BackColor = Color.FromName("Control");
+            btnmovimientocaja.ForeColor = Color.FromArgb(0, 0, 0);
 
 
             //Modulo compra
-            btnnuevacompra.BackColor = Color.FromArgb(93, 109, 126); btnnuevacompra.ForeColor = Color.FromArgb(0, 0, 0);
-            btnanularcompra.BackColor = Color.FromArgb(93, 109, 126); btnanularcompra.ForeColor = Color.FromArgb(0, 0, 0);
-            btnordencompra.BackColor = Color.FromArgb(93, 109, 126); btnordencompra.ForeColor = Color.FromArgb(0, 0, 0);
-            btnrecepcioncompra.BackColor = Color.FromArgb(93, 109, 126); btnrecepcioncompra.ForeColor = Color.FromArgb(0, 0, 0);
-            btncuentasxpagar.BackColor = Color.FromArgb(93, 109, 126); btncuentasxpagar.ForeColor = Color.FromArgb(0, 0, 0);
-            btncotizacion.BackColor = Color.FromArgb(93, 109, 126); btncotizacion.ForeColor = Color.FromArgb(0, 0, 0);
+            btnnuevacompra.BackColor = Color.FromName("Control");
+            btnnuevacompra.ForeColor = Color.FromArgb(0, 0, 0);
+            btnanularcompra.BackColor = Color.FromName("Control");
+            btnanularcompra.ForeColor = Color.FromArgb(0, 0, 0);
+            btnordencompra.BackColor = Color.FromName("Control");
+            btnordencompra.ForeColor = Color.FromArgb(0, 0, 0);
+            btnrecepcioncompra.BackColor = Color.FromName("Control");
+            btnrecepcioncompra.ForeColor = Color.FromArgb(0, 0, 0);
+            btncuentasxpagar.BackColor = Color.FromName("Control");
+            btncuentasxpagar.ForeColor = Color.FromArgb(0, 0, 0);
+            btncotizacion.BackColor = Color.FromName("Control");
+            btncotizacion.ForeColor = Color.FromArgb(0, 0, 0);
 
             //Modulo ventas
-            btnnuevaventa.BackColor = Color.FromArgb(93, 109, 126); btnnuevaventa.ForeColor = Color.FromArgb(0, 0, 0);
-            btnanularventa.BackColor = Color.FromArgb(93, 109, 126); btnanularventa.ForeColor = Color.FromArgb(0, 0, 0);
-            btnconsultasventa.BackColor = Color.FromArgb(93, 109, 126); btnconsultasventa.ForeColor = Color.FromArgb(0, 0, 0);
-            btncliente.BackColor = Color.FromArgb(93, 109, 126); btncliente.ForeColor = Color.FromArgb(0, 0, 0);
+            btnnuevaventa.BackColor = Color.FromName("Control");
+            btnnuevaventa.ForeColor = Color.FromArgb(0, 0, 0);
+            btnanularventa.BackColor = Color.FromName("Control");
+            btnanularventa.ForeColor = Color.FromArgb(0, 0, 0);
+            btnconsultasventa.BackColor = Color.FromName("Control");
+            btnconsultasventa.ForeColor = Color.FromArgb(0, 0, 0);
+            btncliente.BackColor = Color.FromName("Control");
+            btncliente.ForeColor = Color.FromArgb(0, 0, 0);
 
             //Modulo Gestion de negocio
-            btnproductos.BackColor = Color.FromArgb(93, 109, 126); btnproductos.ForeColor = Color.FromArgb(0, 0, 0);
-            btnProveedor.BackColor = Color.FromArgb(93, 109, 126); btnProveedor.ForeColor = Color.FromArgb(0, 0, 0);
-            btnCategoria.BackColor = Color.FromArgb(93, 109, 126); btnCategoria.ForeColor = Color.FromArgb(0, 0, 0);
-            btnPresentacion.BackColor = Color.FromArgb(93, 109, 126); btnPresentacion.ForeColor = Color.FromArgb(0, 0, 0);
+            btnproductos.BackColor = Color.FromName("Control");
+            btnproductos.ForeColor = Color.FromArgb(0, 0, 0);
+            btnProveedor.BackColor = Color.FromName("Control");
+            btnProveedor.ForeColor = Color.FromArgb(0, 0, 0);
+            btnCategoria.BackColor = Color.FromName("Control");
+            btnCategoria.ForeColor = Color.FromArgb(0, 0, 0);
+            btnPresentacion.BackColor = Color.FromName("Control");
+            btnPresentacion.ForeColor = Color.FromArgb(0, 0, 0);
+            btnTasaCambio.BackColor = Color.FromName("Control");
+            btnTasaCambio.ForeColor = Color.FromArgb(0, 0, 0);
+            btnContacto.BackColor = Color.FromName("Control");
+            btnContacto.ForeColor = Color.FromName("ControlText");
+            btnMarca.BackColor = Color.FromName("Control");
+            btnMarca.ForeColor = Color.FromName("ControlText");
+            btnUnidMed.BackColor = Color.FromName("Control");
+            btnUnidMed.ForeColor = Color.FromName("ControlText");
+
 
             //Modulo Administracion
-            btnEmpleado.BackColor = Color.FromArgb(93, 109, 126); btnEmpleado.ForeColor = Color.FromArgb(0, 0, 0);
-            btnCargo.BackColor = Color.FromArgb(93, 109, 126); btnCargo.ForeColor = Color.FromArgb(0, 0, 0);
-            btnroles.BackColor = Color.FromArgb(93, 109, 126); btnroles.ForeColor = Color.FromArgb(0, 0, 0);
-            btnusuario.BackColor = Color.FromArgb(93, 109, 126); btnusuario.ForeColor = Color.FromArgb(0, 0, 0);
+            btnEmpleado.BackColor = Color.FromName("Control");
+            btnEmpleado.ForeColor = Color.FromArgb(0, 0, 0);
+            btnCargo.BackColor = Color.FromName("Control");
+            btnCargo.ForeColor = Color.FromArgb(0, 0, 0);
+            btnroles.BackColor = Color.FromName("Control");
+            btnroles.ForeColor = Color.FromArgb(0, 0, 0);
+            btnusuario.BackColor = Color.FromName("Control");
+            btnusuario.ForeColor = Color.FromArgb(0, 0, 0);
+            btnPersona.BackColor = Color.FromName("Control");
+            btnPersona.ForeColor = Color.FromArgb(0, 0, 0);
+            btnHistorialEmpleado.BackColor = Color.FromName("Control");
+            btnHistorialEmpleado.ForeColor = Color.FromArgb(0, 0, 0);
+            btnConexiones.BackColor = Color.FromName("Control");
+            btnConexiones.ForeColor = Color.FromArgb(0, 0, 0);
 
             //tools
             HerramientasToolStripMenuItem.ForeColor = Color.FromArgb(0, 0, 0);
             QuiaToolStripMenuItem.ForeColor = Color.FromArgb(0, 0, 0);
             PreferenciaToolStripMenuItem.ForeColor = Color.FromArgb(0, 0, 0);
+            ayudaToolStripMenu.ForeColor = Color.FromName("ControlText");
             //lbl pnlBottom
             //userlbl.ForeColor = Color.FromArgb(0, 0, 0);
             lblValorFecha.ForeColor = Color.FromArgb(0, 0, 0);
@@ -270,6 +338,9 @@ namespace CapaPresentacion
             btnCerrarSesion.BackColor = Color.FromArgb(28, 40, 51);
             btnCerrarSesion.ForeColor = Color.FromArgb(255, 255, 255);
             btnUser.BackColor = Color.FromArgb(28, 40, 51);
+            btnCredenciales.BackColor = Color.FromArgb(28, 40, 51);
+            btnCredenciales.ForeColor = Color.FromArgb(255, 255, 255);
+
 
             BarraTitulo.BackColor = Color.FromArgb(23, 32, 42);
             MenuVertical.BackColor = Color.FromArgb(23, 32, 42);
@@ -316,16 +387,42 @@ namespace CapaPresentacion
             btncliente.BackColor = Color.FromArgb(28, 40, 51); btncliente.ForeColor = Color.FromArgb(255, 255, 255);
 
             //Modulo Gestion de negocio
-            btnproductos.BackColor = Color.FromArgb(93, 109, 126); btnproductos.ForeColor = Color.FromArgb(255, 255, 255);
-            btnProveedor.BackColor = Color.FromArgb(93, 109, 126); btnProveedor.ForeColor = Color.FromArgb(255, 255, 255);
-            btnCategoria.BackColor = Color.FromArgb(93, 109, 126); btnCategoria.ForeColor = Color.FromArgb(255, 255, 255);
-            btnPresentacion.BackColor = Color.FromArgb(93, 109, 126); btnPresentacion.ForeColor = Color.FromArgb(255, 255, 255);
+            btnproductos.BackColor = Color.FromArgb(93, 109, 126);
+            btnproductos.ForeColor = Color.FromArgb(255, 255, 255);
+            btnProveedor.BackColor = Color.FromArgb(93, 109, 126);
+            btnProveedor.ForeColor = Color.FromArgb(255, 255, 255);
+            btnCategoria.BackColor = Color.FromArgb(93, 109, 126);
+            btnCategoria.ForeColor = Color.FromArgb(255, 255, 255);
+            btnPresentacion.BackColor = Color.FromArgb(93, 109, 126);
+            btnPresentacion.ForeColor = Color.FromArgb(255, 255, 255);
+            btnContacto.BackColor = Color.FromArgb(93, 109, 126);
+            btnContacto.ForeColor = Color.FromArgb(255, 255, 255);
+            btnMarca.BackColor = Color.FromArgb(93, 109, 126);
+            btnMarca.ForeColor = Color.FromArgb(255, 255, 255);
+            btnUnidMed.BackColor = Color.FromArgb(93, 109, 126);
+            btnUnidMed.ForeColor = Color.FromArgb(255, 255, 255);
+            btnTasaCambio.BackColor = Color.FromArgb(93, 109, 126);
+            btnTasaCambio.ForeColor = Color.FromArgb(255, 255, 255);
+
+
+
 
             //Modulo Administracion
-            btnEmpleado.BackColor = Color.FromArgb(93, 109, 126); btnEmpleado.ForeColor = Color.FromArgb(255, 255, 255);
-            btnCargo.BackColor = Color.FromArgb(93, 109, 126); btnCargo.ForeColor = Color.FromArgb(255, 255, 255);
-            btnroles.BackColor = Color.FromArgb(93, 109, 126); btnroles.ForeColor = Color.FromArgb(255, 255, 255);
-            btnusuario.BackColor = Color.FromArgb(93, 109, 126); btnusuario.ForeColor = Color.FromArgb(255, 255, 255);
+            btnEmpleado.BackColor = Color.FromArgb(93, 109, 126);
+            btnEmpleado.ForeColor = Color.FromArgb(255, 255, 255);
+            btnCargo.BackColor = Color.FromArgb(93, 109, 126);
+            btnCargo.ForeColor = Color.FromArgb(255, 255, 255);
+            btnroles.BackColor = Color.FromArgb(93, 109, 126);
+            btnroles.ForeColor = Color.FromArgb(255, 255, 255);
+            btnusuario.BackColor = Color.FromArgb(93, 109, 126);
+            btnusuario.ForeColor = Color.FromArgb(255, 255, 255);
+            btnPersona.BackColor = Color.FromArgb(93, 109, 126);
+            btnPersona.ForeColor = Color.FromArgb(255, 255, 255);
+            btnHistorialEmpleado.BackColor = Color.FromArgb(93, 109, 126);
+            btnHistorialEmpleado.ForeColor = Color.FromName("Control");
+            btnConexiones.ForeColor = Color.FromArgb(255, 255, 255);
+            btnConexiones.BackColor = Color.FromArgb(93, 109, 126);
+            
 
             //tools
             HerramientasToolStripMenuItem.ForeColor = Color.FromArgb(255, 255, 255);
@@ -789,6 +886,12 @@ namespace CapaPresentacion
             AbrirFormEnPanel(frmT);
 
 
+        }
+
+        private void FrmMenuPrincipal_Activated(object sender, EventArgs e)
+        {
+
+  
         }
     }
 }

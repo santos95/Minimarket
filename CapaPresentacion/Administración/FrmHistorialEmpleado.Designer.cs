@@ -221,12 +221,17 @@
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.SystemColors.Control;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(590, 55);
+            this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(556, 55);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(50, 40);
+            this.button1.Size = new System.Drawing.Size(138, 40);
             this.button1.TabIndex = 2;
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Text = "Buscar";
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // txtBuscar
             // 

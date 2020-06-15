@@ -28,31 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmTasaCambio));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.lblTotal = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.rbtnInactivo = new System.Windows.Forms.RadioButton();
             this.rbtnActivo = new System.Windows.Forms.RadioButton();
             this.rbtnTodos = new System.Windows.Forms.RadioButton();
-            this.btnBuscar = new System.Windows.Forms.Button();
             this.tblListado = new System.Windows.Forms.DataGridView();
-            this.txtBuscar = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblTotalImportar = new System.Windows.Forms.Label();
             this.dgvImportar = new System.Windows.Forms.DataGridView();
             this.MenuVertical = new System.Windows.Forms.Panel();
             this.btnSalir = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.btnMenu = new System.Windows.Forms.PictureBox();
-            this.btnDeshacer = new System.Windows.Forms.Button();
-            this.btnEditar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnImportar = new System.Windows.Forms.Button();
+            this.label20 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.iconcerrar = new System.Windows.Forms.PictureBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -62,6 +65,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvImportar)).BeginInit();
             this.MenuVertical.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconcerrar)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -69,7 +74,7 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.tabControl1.Location = new System.Drawing.Point(5, 29);
+            this.tabControl1.Location = new System.Drawing.Point(5, 80);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(790, 467);
@@ -78,12 +83,11 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            this.tabPage1.Controls.Add(this.button1);
             this.tabPage1.Controls.Add(this.dateTimePicker1);
             this.tabPage1.Controls.Add(this.lblTotal);
             this.tabPage1.Controls.Add(this.groupBox1);
-            this.tabPage1.Controls.Add(this.btnBuscar);
             this.tabPage1.Controls.Add(this.tblListado);
-            this.tabPage1.Controls.Add(this.txtBuscar);
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Location = new System.Drawing.Point(4, 30);
             this.tabPage1.Name = "tabPage1";
@@ -92,9 +96,23 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Listado";
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.Control;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(325, 60);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(158, 40);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "&Buscar";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(162, 15);
+            this.dateTimePicker1.Location = new System.Drawing.Point(110, 65);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 27);
             this.dateTimePicker1.TabIndex = 7;
@@ -155,15 +173,6 @@
             this.rbtnTodos.Text = "Todos";
             this.rbtnTodos.UseVisualStyleBackColor = true;
             // 
-            // btnBuscar
-            // 
-            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscar.Location = new System.Drawing.Point(380, 60);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(50, 40);
-            this.btnBuscar.TabIndex = 3;
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            // 
             // tblListado
             // 
             this.tblListado.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -190,13 +199,6 @@
             this.tblListado.Size = new System.Drawing.Size(750, 266);
             this.tblListado.TabIndex = 2;
             // 
-            // txtBuscar
-            // 
-            this.txtBuscar.Location = new System.Drawing.Point(117, 65);
-            this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(250, 27);
-            this.txtBuscar.TabIndex = 1;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -204,9 +206,9 @@
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(27, 65);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(77, 21);
+            this.label2.Size = new System.Drawing.Size(63, 21);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Nombre:";
+            this.label2.Text = "Fecha:";
             // 
             // tabPage2
             // 
@@ -222,30 +224,42 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.lblTotalImportar);
             this.panel1.Controls.Add(this.dgvImportar);
             this.panel1.Location = new System.Drawing.Point(184, 3);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(595, 427);
             this.panel1.TabIndex = 59;
             // 
+            // lblTotalImportar
+            // 
+            this.lblTotalImportar.AutoSize = true;
+            this.lblTotalImportar.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold);
+            this.lblTotalImportar.ForeColor = System.Drawing.Color.White;
+            this.lblTotalImportar.Location = new System.Drawing.Point(93, 366);
+            this.lblTotalImportar.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTotalImportar.Name = "lblTotalImportar";
+            this.lblTotalImportar.Size = new System.Drawing.Size(0, 22);
+            this.lblTotalImportar.TabIndex = 22;
+            // 
             // dgvImportar
             // 
             this.dgvImportar.AllowUserToAddRows = false;
             this.dgvImportar.AllowUserToDeleteRows = false;
+            this.dgvImportar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
             this.dgvImportar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvImportar.Location = new System.Drawing.Point(50, 20);
+            this.dgvImportar.Location = new System.Drawing.Point(54, 50);
             this.dgvImportar.Name = "dgvImportar";
-            this.dgvImportar.Size = new System.Drawing.Size(500, 380);
+            this.dgvImportar.Size = new System.Drawing.Size(500, 300);
             this.dgvImportar.TabIndex = 0;
             // 
             // MenuVertical
             // 
             this.MenuVertical.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(184)))), ((int)(((byte)(206)))));
             this.MenuVertical.Controls.Add(this.btnSalir);
+            this.MenuVertical.Controls.Add(this.btnCancelar);
             this.MenuVertical.Controls.Add(this.label14);
             this.MenuVertical.Controls.Add(this.btnMenu);
-            this.MenuVertical.Controls.Add(this.btnDeshacer);
-            this.MenuVertical.Controls.Add(this.btnEditar);
             this.MenuVertical.Controls.Add(this.btnGuardar);
             this.MenuVertical.Controls.Add(this.btnImportar);
             this.MenuVertical.Dock = System.Windows.Forms.DockStyle.Left;
@@ -256,19 +270,37 @@
             // 
             // btnSalir
             // 
-            this.btnSalir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(184)))), ((int)(((byte)(206)))));
-            this.btnSalir.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            this.btnSalir.BackColor = System.Drawing.Color.White;
             this.btnSalir.FlatAppearance.BorderSize = 2;
             this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSalir.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.btnSalir.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnSalir.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btnSalir.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnSalir.Image = ((System.Drawing.Image)(resources.GetObject("btnSalir.Image")));
             this.btnSalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSalir.Location = new System.Drawing.Point(22, 315);
+            this.btnSalir.Location = new System.Drawing.Point(22, 240);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(153, 42);
             this.btnSalir.TabIndex = 22;
-            this.btnSalir.Text = "Salir";
+            this.btnSalir.Text = "    &Cerrar";
             this.btnSalir.UseVisualStyleBackColor = false;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.BackColor = System.Drawing.SystemColors.Control;
+            this.btnCancelar.FlatAppearance.BorderSize = 2;
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelar.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btnCancelar.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
+            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancelar.Location = new System.Drawing.Point(22, 190);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(153, 42);
+            this.btnCancelar.TabIndex = 21;
+            this.btnCancelar.Text = "  &Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // label14
             // 
@@ -293,48 +325,17 @@
             this.btnMenu.TabIndex = 15;
             this.btnMenu.TabStop = false;
             // 
-            // btnDeshacer
-            // 
-            this.btnDeshacer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(184)))), ((int)(((byte)(206)))));
-            this.btnDeshacer.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
-            this.btnDeshacer.FlatAppearance.BorderSize = 2;
-            this.btnDeshacer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDeshacer.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.btnDeshacer.ForeColor = System.Drawing.Color.White;
-            this.btnDeshacer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDeshacer.Location = new System.Drawing.Point(22, 255);
-            this.btnDeshacer.Name = "btnDeshacer";
-            this.btnDeshacer.Size = new System.Drawing.Size(153, 42);
-            this.btnDeshacer.TabIndex = 14;
-            this.btnDeshacer.Text = "    Deshacer";
-            this.btnDeshacer.UseVisualStyleBackColor = false;
-            // 
-            // btnEditar
-            // 
-            this.btnEditar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(184)))), ((int)(((byte)(206)))));
-            this.btnEditar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
-            this.btnEditar.FlatAppearance.BorderSize = 2;
-            this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditar.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.btnEditar.ForeColor = System.Drawing.Color.White;
-            this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditar.Location = new System.Drawing.Point(22, 195);
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(153, 42);
-            this.btnEditar.TabIndex = 13;
-            this.btnEditar.Text = "    Editar";
-            this.btnEditar.UseVisualStyleBackColor = false;
-            // 
             // btnGuardar
             // 
-            this.btnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(184)))), ((int)(((byte)(206)))));
+            this.btnGuardar.BackColor = System.Drawing.SystemColors.Control;
             this.btnGuardar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
             this.btnGuardar.FlatAppearance.BorderSize = 2;
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardar.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.btnGuardar.ForeColor = System.Drawing.Color.White;
+            this.btnGuardar.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btnGuardar.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnGuardar.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardar.Image")));
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar.Location = new System.Drawing.Point(22, 135);
+            this.btnGuardar.Location = new System.Drawing.Point(22, 140);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(153, 42);
             this.btnGuardar.TabIndex = 12;
@@ -344,13 +345,15 @@
             // 
             // btnImportar
             // 
+            this.btnImportar.BackColor = System.Drawing.SystemColors.Control;
             this.btnImportar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
             this.btnImportar.FlatAppearance.BorderSize = 2;
             this.btnImportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnImportar.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.btnImportar.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnImportar.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btnImportar.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnImportar.Image = ((System.Drawing.Image)(resources.GetObject("btnImportar.Image")));
             this.btnImportar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnImportar.Location = new System.Drawing.Point(22, 75);
+            this.btnImportar.Location = new System.Drawing.Point(22, 90);
             this.btnImportar.Name = "btnImportar";
             this.btnImportar.Size = new System.Drawing.Size(153, 42);
             this.btnImportar.TabIndex = 11;
@@ -358,15 +361,60 @@
             this.btnImportar.UseVisualStyleBackColor = false;
             this.btnImportar.Click += new System.EventHandler(this.btnImportar_Click);
             // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.BackColor = System.Drawing.Color.Transparent;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.ForeColor = System.Drawing.Color.Maroon;
+            this.label20.Location = new System.Drawing.Point(104, 25);
+            this.label20.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(205, 29);
+            this.label20.TabIndex = 9;
+            this.label20.Text = "Tasa de Cambio";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox1.Location = new System.Drawing.Point(22, 7);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(78, 68);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 10;
+            this.pictureBox1.TabStop = false;
+            // 
+            // iconcerrar
+            // 
+            this.iconcerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.iconcerrar.BackColor = System.Drawing.Color.Transparent;
+            this.iconcerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.iconcerrar.Image = ((System.Drawing.Image)(resources.GetObject("iconcerrar.Image")));
+            this.iconcerrar.Location = new System.Drawing.Point(747, 7);
+            this.iconcerrar.Margin = new System.Windows.Forms.Padding(2);
+            this.iconcerrar.Name = "iconcerrar";
+            this.iconcerrar.Size = new System.Drawing.Size(48, 36);
+            this.iconcerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.iconcerrar.TabIndex = 21;
+            this.iconcerrar.TabStop = false;
+            this.iconcerrar.Click += new System.EventHandler(this.iconcerrar_Click);
+            // 
             // FrmTasaCambio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 525);
+            this.ClientSize = new System.Drawing.Size(800, 550);
+            this.Controls.Add(this.iconcerrar);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.label20);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmTasaCambio";
             this.Text = "FrmTasaCambio";
+            this.Load += new System.EventHandler(this.FrmTasaCambio_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -375,11 +423,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.tblListado)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvImportar)).EndInit();
             this.MenuVertical.ResumeLayout(false);
             this.MenuVertical.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconcerrar)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -393,20 +445,22 @@
         private System.Windows.Forms.RadioButton rbtnInactivo;
         private System.Windows.Forms.RadioButton rbtnActivo;
         private System.Windows.Forms.RadioButton rbtnTodos;
-        private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.DataGridView tblListado;
-        private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView dgvImportar;
         private System.Windows.Forms.Panel MenuVertical;
-        private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.PictureBox btnMenu;
-        private System.Windows.Forms.Button btnDeshacer;
-        private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnImportar;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSalir;
+        private System.Windows.Forms.Label lblTotalImportar;
+        private System.Windows.Forms.PictureBox iconcerrar;
     }
 }

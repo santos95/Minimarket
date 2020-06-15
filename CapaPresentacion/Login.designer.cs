@@ -89,6 +89,13 @@ namespace CapaPresentacion
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), usuario, contraseña);
 			return ((int)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.spEstablecerTasa")]
+		public ISingleResult<spEstablecerTasaResult> spEstablecerTasa()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<spEstablecerTasaResult>)(result.ReturnValue));
+		}
 	}
 	
 	public partial class accesologinResult
@@ -264,6 +271,32 @@ namespace CapaPresentacion
 				if ((this._dtDesconexion != value))
 				{
 					this._dtDesconexion = value;
+				}
+			}
+		}
+	}
+	
+	public partial class spEstablecerTasaResult
+	{
+		
+		private double _flValorCambio;
+		
+		public spEstablecerTasaResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_flValorCambio", DbType="Float NOT NULL")]
+		public double flValorCambio
+		{
+			get
+			{
+				return this._flValorCambio;
+			}
+			set
+			{
+				if ((this._flValorCambio != value))
+				{
+					this._flValorCambio = value;
 				}
 			}
 		}

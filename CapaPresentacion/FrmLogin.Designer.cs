@@ -46,6 +46,7 @@
             this.data = new System.Windows.Forms.DataGridView();
             this.estado = new System.Windows.Forms.DataGridView();
             this.BtnIngresar = new System.Windows.Forms.Button();
+            this.tasa = new System.Windows.Forms.DataGridView();
             this.Encabezado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnminimizar)).BeginInit();
@@ -54,6 +55,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Contraseña)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.data)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.estado)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tasa)).BeginInit();
             this.SuspendLayout();
             // 
             // Encabezado
@@ -227,12 +229,21 @@
             this.BtnIngresar.UseVisualStyleBackColor = false;
             this.BtnIngresar.Click += new System.EventHandler(this.BtnIngresar_Click);
             // 
+            // tasa
+            // 
+            this.tasa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tasa.Location = new System.Drawing.Point(196, 287);
+            this.tasa.Name = "tasa";
+            this.tasa.Size = new System.Drawing.Size(240, 101);
+            this.tasa.TabIndex = 150;
+            // 
             // FrmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(617, 270);
+            this.Controls.Add(this.tasa);
             this.Controls.Add(this.BtnIngresar);
             this.Controls.Add(this.estado);
             this.Controls.Add(this.data);
@@ -261,6 +272,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Contraseña)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.data)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.estado)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tasa)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -284,5 +296,6 @@
         private System.Windows.Forms.PictureBox btnminimizar;
         private System.Windows.Forms.PictureBox btnClose;
         private System.Windows.Forms.Button BtnIngresar;
+        private System.Windows.Forms.DataGridView tasa;
     }
 }

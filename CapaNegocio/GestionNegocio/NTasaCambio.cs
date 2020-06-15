@@ -11,6 +11,13 @@ namespace CapaNegocio.GestionNegocio
     public class NTasaCambio
     {
 
+        public static DataTable MostrarTasa()
+        {
+
+            return new TasaCambio().MostrarTasa();
+
+        }
+
         public static DataTable Importar(string ruta)
         {
 
@@ -18,13 +25,12 @@ namespace CapaNegocio.GestionNegocio
 
         }
 
-        public static string Guardar()
+        public static string Guardar(string ruta)
         {
 
-            return new TasaCambio().Guardar();
+            return new TasaCambio().Guardar(ruta);
 
         }
-
 
     }
 }

@@ -545,9 +545,9 @@
             this.lblValorTasa.ForeColor = System.Drawing.Color.Black;
             this.lblValorTasa.Location = new System.Drawing.Point(414, 3);
             this.lblValorTasa.Name = "lblValorTasa";
-            this.lblValorTasa.Size = new System.Drawing.Size(61, 19);
+            this.lblValorTasa.Size = new System.Drawing.Size(26, 19);
             this.lblValorTasa.TabIndex = 44;
-            this.lblValorTasa.Text = "C$33.84";
+            this.lblValorTasa.Text = "C$";
             // 
             // lblCaja
             // 
@@ -705,7 +705,7 @@
             this.inglesToolStripMenuItem,
             this.españolToolStripMenuItem1});
             this.idiomaToolStripMenuItem1.Name = "idiomaToolStripMenuItem1";
-            this.idiomaToolStripMenuItem1.Size = new System.Drawing.Size(180, 24);
+            this.idiomaToolStripMenuItem1.Size = new System.Drawing.Size(121, 24);
             this.idiomaToolStripMenuItem1.Text = "Idioma";
             // 
             // inglesToolStripMenuItem
@@ -728,20 +728,20 @@
             this.oscuroToolStripMenuItem1,
             this.claroToolStripMenuItem1});
             this.fondoToolStripMenuItem1.Name = "fondoToolStripMenuItem1";
-            this.fondoToolStripMenuItem1.Size = new System.Drawing.Size(180, 24);
+            this.fondoToolStripMenuItem1.Size = new System.Drawing.Size(121, 24);
             this.fondoToolStripMenuItem1.Text = "Fondo";
             // 
             // oscuroToolStripMenuItem1
             // 
             this.oscuroToolStripMenuItem1.Name = "oscuroToolStripMenuItem1";
-            this.oscuroToolStripMenuItem1.Size = new System.Drawing.Size(180, 24);
+            this.oscuroToolStripMenuItem1.Size = new System.Drawing.Size(123, 24);
             this.oscuroToolStripMenuItem1.Text = "Oscuro";
             this.oscuroToolStripMenuItem1.Click += new System.EventHandler(this.oscuroToolStripMenuItem1_Click);
             // 
             // claroToolStripMenuItem1
             // 
             this.claroToolStripMenuItem1.Name = "claroToolStripMenuItem1";
-            this.claroToolStripMenuItem1.Size = new System.Drawing.Size(180, 24);
+            this.claroToolStripMenuItem1.Size = new System.Drawing.Size(123, 24);
             this.claroToolStripMenuItem1.Text = "Claro";
             this.claroToolStripMenuItem1.Click += new System.EventHandler(this.claroToolStripMenuItem1_Click);
             // 
@@ -818,7 +818,7 @@
             // MenuVertical
             // 
             this.MenuVertical.AutoScroll = true;
-            this.MenuVertical.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(232)))), ((int)(((byte)(232)))));
+            this.MenuVertical.BackColor = System.Drawing.SystemColors.Control;
             this.MenuVertical.Controls.Add(this.pnladmin);
             this.MenuVertical.Controls.Add(this.btnMadmin);
             this.MenuVertical.Controls.Add(this.pnlnegocio);
@@ -1497,6 +1497,7 @@
             this.Name = "FrmMenuPrincipal";
             this.Text = "FrmMenuPrincipal";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Activated += new System.EventHandler(this.FrmMenuPrincipal_Activated);
             this.Load += new System.EventHandler(this.FrmMenuPrincipal_Load);
             this.pnlcompras.ResumeLayout(false);
             this.pnlcaja.ResumeLayout(false);

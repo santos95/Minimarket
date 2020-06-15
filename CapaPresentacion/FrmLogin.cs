@@ -18,6 +18,7 @@ namespace CapaPresentacion
         public int accesousuario;
         string nombreusu;
         string passuser;
+        double vTasa;
         int codigousu;
         int count = 0;
         char estadousu;
@@ -217,7 +218,7 @@ namespace CapaPresentacion
             try
             {
                 //intento
-                ++Count;
+                Count++;
 
                 //Verificación de credenciales
                 data.DataSource = conexionLinq.accesologin(TxtUsuario.Text.Trim(), CapaNegocio.Administracion.NUsuario.Encriptar(TxtPassword.Text.Trim()));
@@ -228,6 +229,10 @@ namespace CapaPresentacion
                 nombreusu = data[1, 0].Value.ToString();
                 codigousu = int.Parse(data[3, 0].Value.ToString());
                 passuser = data[2, 0].Value.ToString();
+
+                //tasa
+                tasa.DataSource = conexionLinq.spEstablecerTasa();
+                vTasa = double.Parse(tasa[0, 0].Value.ToString());
 
                 estado.DataSource = conexionLinq.estadoconexion(codigousu);
                 estadousu = char.Parse(estado[2, 0].Value.ToString());
@@ -264,6 +269,8 @@ namespace CapaPresentacion
                         frm.Show();
                         frm.usuario = nombreusu;
                         frm.btnUser.Text = nombreusu;
+                        frm.tasa = vTasa;
+                        
                         //this.Hide();
 
                     }/*

@@ -24,6 +24,7 @@ CREATE TABLE cat_persona
 )
 GO
 
+
 --Control de cargos
 CREATE TABLE cat_cargo
 (
@@ -129,12 +130,12 @@ CREATE TABLE tblTasaCambio
 (
 	
 	IdTasaCambio		INT PRIMARY KEY IDENTITY(1,1),
-	dtFechaVigencia		date NOT NULL,
-	flValorCambio		decimal NOT NULL,
+	dtFechaVigencia		date NOT NULL UNIQUE,
+	flValorCambio		float NOT NULL,
 	dtFechaRegistro		DATETIME DEFAULT GETDATE()
 
 )
 GO
 
-select * from tblTasaCambio
+
 

@@ -29,4 +29,9 @@
     <Parameter Name="contraseña" Type="System.String" DbType="VarChar(100)" />
     <Return Type="System.Int32" />
   </Function>
+  <Function Name="dbo.spEstablecerTasa" Method="spEstablecerTasa">
+    <ElementType Name="spEstablecerTasaResult">
+      <Column Name="flValorCambio" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
 </Database>

@@ -643,63 +643,7 @@ AS
 	SELECT E.cod_empleado AS 'CodEmpleado', P.strNombre AS Nombre, P.strApellidoRazon AS Apellido, P.numIdentificacion AS Identificación, C.id_cargo AS CodCargo, C.nombre_cargo AS Cargo, CE.estado AS Estado FROM cat_usuario U RIGHT JOIN tbl_detalleCargoEmpleado CE ON U.empleado = CE.codEmpleado JOIN cat_empleado E ON CE.codEmpleado = E.cod_empleado JOIN cat_persona P ON E.codPersona = P.cod_persona JOIN cat_cargo C ON CE.codCargo = C.id_cargo  WHERE U.estado IS NULL and CE.estado = 'A'
 GO
 
---anterior
-CREATE PROC spNuevoUsuario
-@codEmpleado	int,
-@rol			int,
-@usuario		varchar(100),
-@contraseña		varchar(100),
-@registrado		varchar(80),
-@autorizado		varchar(80),
-@observacion	varchar(300),
-@estado			char(1),
-@mensaje		varchar(80) out
-AS
-BEGIN
-	
-		IF(EXISTS(SELECT cod_usuario FROM cat_usuario WHERE empleado = @codEmpleado))
-			SET @mensaje='El empleado ya tiene asignado un usuario.';
-		ELSE IF(EXISTS(SELECT cod_usuario FROM cat_usuario WHERE contraseña = @contraseña))
-			SET @mensaje='Contraseña no válida. Intente con una nueva';
-		ELSE
-		BEGIN
-		
-			DECLARE @codUsuario INT;
 
-			SELECT @codUsuario = ISNULL(MAX(cod_usuario), 0) + 1 FROM cat_usuario;
-
-			
-
-			IF @estado = 'A'
-			BEGIN
-				
-				INSERT INTO dbo.cat_usuario  (cod_usuario, empleado, rolacceso, usuario, contraseña, pass, registrado, autorizado, strObservacion, estado)
-				VALUES (@codUsuario, @codEmpleado, @rol, @usuario, ENCRYPTBYPASSPHRASE('SuperSeguridad' ,@contraseña), @contraseña, @registrado, @autorizado, @observacion, @estado);
-				
-				SET @mensaje = 'Se ha registrado nuevo usuario. Se ha Autorizado el usuario.';
-
-				
-				IF(NOT EXISTS(SELECT id_control_acceso FROM tbl_control_acceso WHERE usuario = @codUsuario))
-				BEGIN
-					INSERT INTO tbl_control_acceso (usuario, estadoacceso) VALUES (@codUsuario, 'c')
-				END
-				
-			END
-			ELSE IF @estado = 'I'
-			BEGIN
-				
-				INSERT INTO cat_usuario (cod_usuario, empleado, rolacceso, usuario, contraseña, pass, registrado, strObservacion, estado)
-				VALUES (@codUsuario, @codEmpleado, @rol, @usuario, ENCRYPTBYPASSPHRASE('SuperSeguridad' ,@contraseña), @contraseña, @registrado, @observacion, @estado);	
-				
-				SET @mensaje = 'Se ha registrado nuevo usuario. Debe ser autorizado por un usuario autorizado.';
-			
-			END
-			
-
-		END
-END
-GO
---actual
 CREATE PROC spNuevoUsuario
 @codEmpleado	int,
 @rol			int,
@@ -756,64 +700,6 @@ BEGIN
 			
 
 		END
-END
-GO
-
---Anterior
-CREATE PROC spActualizarUsuario
-@codUsuario		int,
-@rol			int,
-@usuario		varchar(100),
-@contraseña		varchar(100),
-@autorizado		varchar(80),
-@observacion	varchar(300),
-@estado			char(1),
-@mensaje		varchar(80) out
-AS
-BEGIN
-	IF(NOT EXISTS(SELECT cod_usuario FROM cat_usuario WHERE cod_usuario = @codUsuario))
-		SET @mensaje = 'El usuario no se encuentra registrado.';
-	ELSE
-	BEGIN
-		
-		DECLARE @contraseñaA VARCHAR(100)
-		SELECT @contraseñaA = pass FROM cat_usuario WHERE cod_usuario = @codUsuario;
-
-		IF @estado = 'A'
-		BEGIN
-			
-			IF @contraseñaA = @contraseña
-			BEGIN
-				UPDATE cat_usuario SET rolacceso = @rol, usuario = @usuario, autorizado = @autorizado, strObservacion = @observacion, estado = @estado WHERE cod_usuario = @codUsuario;
-				SET @mensaje = 'Se ha actualizado el usuario. Se ha autorizado el usuario.'
-			END
-			ELSE
-			BEGIN
-				UPDATE cat_usuario SET rolacceso = @rol, usuario = @usuario, autorizado = @autorizado, strObservacion = @observacion, estado = @estado, contraseña = ENCRYPTBYPASSPHRASE('SuperSeguridad' ,@contraseña), pass = @contraseña  WHERE cod_usuario = @codUsuario;
-				SET @mensaje = 'Se ha actualizado el usuario. Se ha autorizado. Se ha actualizado la contraseña.'
-			END
-
-			IF(NOT EXISTS(SELECT id_control_acceso FROM tbl_control_acceso WHERE usuario = @codUsuario))
-			BEGIN
-				INSERT INTO tbl_control_acceso (usuario, estadoacceso) VALUES (@codUsuario, 'c')
-			END
-
-		END
-		ELSE IF @estado = 'I'
-		BEGIN
-			IF @contraseñaA = @contraseña
-			BEGIN
-				UPDATE cat_usuario SET rolacceso = @rol, usuario = @usuario, autorizado = @autorizado, strObservacion = @observacion, estado = @estado WHERE cod_usuario = @codUsuario;
-				SET @mensaje = 'Se ha actualizado el usuario. Se ha anulado el usuario.'
-			END
-			ELSE
-			BEGIN
-				UPDATE cat_usuario SET rolacceso = @rol, usuario = @usuario, autorizado = @autorizado, strObservacion = @observacion, estado = @estado, contraseña = ENCRYPTBYPASSPHRASE('SuperSeguridad' ,@contraseña), pass = @contraseña  WHERE cod_usuario = @codUsuario;
-				SET @mensaje = 'Se ha actualizado el usuario. Se ha actualizado la contraseña. Se ha anulado el usuario.'
-			END
-
-		END
-	END
 END
 GO
 
@@ -964,7 +850,6 @@ GO
 -------------------       Created by: Santos Alberto Ortiz Chávez         -----------------------------------
 -------------------       Date: 14/04/2020                                ----------------------------------- 
 -------------------------------------------------------------------------------------------------------------
-select * from cat_usuario
 
 --Roles
 CREATE PROC spMostrarRoles
@@ -1094,10 +979,7 @@ BEGIN
 	END
 		
 END
-
-exec spMostrarHistorialAcceso
-
-	SELECT TOP 1 id_control_acceso AS 'ID Conexion', C.usuario AS 'CodUsuario', U.usuario AS 'Usuario', estadoacceso AS 'Estado Conexión', dtConexion AS 'Conectado', ISNULL(dtDesconexion, getdate()) AS 'Desconectado' FROM tbl_control_acceso C JOIN cat_usuario U ON C.usuario = U.cod_usuario ORDER BY dtConexion DESC
+GO
 
 
 CREATE PROC spMostrarHistorialAcceso
@@ -1108,8 +990,6 @@ BEGIN
 
 END
 GO
-select * from cat_usuario
-EXEC spMostrarHistorialAcceso
 
 CREATE PROC spMostrarHistorialConectado
 AS
@@ -1215,9 +1095,26 @@ BEGIN
 		END
 
 END
+GO
+-----------------------------------Procedimientos Tasa de Cambio----------------------------------------------------
+-------------------       Created by: Santos Alberto Ortiz Chávez         -----------------------------------
+-------------------       Date: 12/06/2020                                ----------------------------------- 
+--Mostrar tasa de cambio
+CREATE PROC spMostrarTasa
+AS
+BEGIN
 
-select * from tbl_control_acceso
-select * from cat_usuario
-update cat_usuario set estado = 'A' where cod_usuario = 1
-cd0d59058ed2ea40b916cd9c62c02fbb9025a681b0ce173de5808d44825c6e9b SuperMendax#1 
-SuperMendax#2
+	SELECT IdTasaCambio AS 'ID', dtFechaVigencia AS 'Fecha de Vigencia', flValorCambio AS 'Valor C$ por $',  dtFechaRegistro AS 'Registrado' FROM tblTasaCambio ORDER BY dtFechaVigencia DESC
+
+END
+GO
+
+CREATE PROC spEstablecerTasa
+AS
+BEGIN
+	
+	SELECT flValorCambio FROM tblTasaCambio WHERE dtFechaVigencia = CONVERT(DATE, GETDATE())
+
+
+END
+GO

@@ -13,8 +13,8 @@ namespace CapaPresentacion.Administración
     public partial class Conexiones : Form
     {
 
-        int idConexion;
-        char estado;
+       // int idConexion;
+        //char estado;
 
         DataDataContext cnLinq = new DataDataContext();
 

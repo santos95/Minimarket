@@ -14,17 +14,50 @@ namespace CapaPresentacion.GestionNegocio
 {
     public partial class FrmTasaCambio : Form
     {
+
+        private string ruta = "";
+        private bool importar = false;
+   
+       
+     
+
         public FrmTasaCambio()
         {
             InitializeComponent();
         }
 
+        private void Botones()
+        {
+
+            if (importar)
+            {
+
+                btnImportar.Enabled = false;                
+                btnGuardar.Enabled = true;
+                btnCancelar.Enabled = true;
+
+            }
+            else
+            {
+
+
+                btnImportar.Enabled = true;
+                btnGuardar.Enabled = false;
+                btnCancelar.Enabled = false;
+
+            }
+
+        }
+
         private void btnImportar_Click(object sender, EventArgs e)
         {
 
-              string ruta = "";
+            //string ruta = "";
             string nombre = "";
 
+            //Botones
+            importar = true;
+            Botones();
 
             try
             {
@@ -84,11 +117,14 @@ namespace CapaPresentacion.GestionNegocio
 
                 dgvImportar.DataSource = DtTasa;
 
+                lblTotalImportar.Text = "Total de registros: "  + dgvImportar.Rows.Count;
             }
             catch (Exception ex)
             {
 
                 MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                importar = false;
+                Botones();
 
             }
 
@@ -99,15 +135,113 @@ namespace CapaPresentacion.GestionNegocio
         {
             string rpta = string.Empty;
 
-            if (dgvImportar.DataSource != null)
+
+            if (importar == true)
             {
+                if (ruta != "")
+                {
 
-               rpta = NTasaCambio.Guardar();
+                    if (dgvImportar.DataSource != null)
+                    {
 
-                MessageBox.Show(rpta, "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        rpta = NTasaCambio.Guardar(ruta);
+
+                        //Muestra el resultado de la ejecución
+                        MessageBox.Show(rpta, "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                   
+                    }
+
+                }
+                else
+                {
+
+                    MessageBox.Show("Importe un archivo con datos de los valores de cambio para poder almacenarlos en el sistema.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                }
+
+                
+                importar = false;
+                Botones();
+                dgvImportar.DataSource = null;
+                lblTotalImportar.Text = "";
+
+                //Actualiza el listado
+                Mostrar();
+
 
             }
 
+
+        }
+
+        public void TotalRegistros()
+        {
+
+            lblTotal.Text = "Total de registros: " + tblListado.Rows.Count;
+
+        }
+
+        
+
+        private void Mostrar()
+        {
+
+            tblListado.DataSource = NTasaCambio.MostrarTasa();
+            TotalRegistros();
+
+        }
+
+        private void FrmTasaCambio_Load(object sender, EventArgs e)
+        {
+
+            Botones();
+            Mostrar();
+
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+
+            //cancelar
+            importar = false;
+            Botones();
+
+            dgvImportar.DataSource = null;
+            ruta = string.Empty;
+
+            lblTotalImportar.Text = "";
+
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+
+            if (importar)
+            {
+                if (MessageBox.Show("¿Tiene datos sin guardar, desea salir?", "Advertencia",
+              MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                    this.Close();
+            }
+            else
+            {
+                Close();
+            }
+
+        }
+
+        private void iconcerrar_Click(object sender, EventArgs e)
+        {
+            if(importar)
+            {
+                if (MessageBox.Show("¿Tiene datos sin guardar, desea salir?", "Advertencia",
+              MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                    this.Close();
+            }
+            else
+            {
+                Close();
+            }
         }
     }
 }
